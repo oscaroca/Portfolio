@@ -12,7 +12,7 @@ function Github() {
       }}
     >
       <h1 className="project-heading pb-4" style={{ paddingBottom: "20px" }}>
-        Days I <strong className="purple">Code</strong>
+        Days I <strong className="mainGreen">Code</strong>
       </h1>
       <GitHubCalendar
         username="soumyajit4419"

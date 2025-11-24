@@ -30,7 +30,7 @@ function Home() {
 
               <h1 className="heading-name">
                 I'M
-                <strong className="main-name"> SOUMYAJIT BEHERA</strong>
+                <strong className="main-name"> OSCAR BLAZQUEZ</strong>
               </h1>
 
               <div style={{ padding: 50, textAlign: "left" }}>
@@ -56,12 +56,12 @@ function Home() {
           <Col md={12} className="home-about-social">
             <h1>Find Me On</h1>
             <p>
-              Feel free to <span className="purple">connect </span>with me
+              Feel free to <span className="mainGreen">connect </span>with me
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
-                  href="https://github.com/soumyajit4419"
+                  href="https://github.com/oscaroca"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -81,7 +81,7 @@ function Home() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.linkedin.com/in/soumyajit4419/"
+                  href="https://www.linkedin.com/in/oscarbj/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"

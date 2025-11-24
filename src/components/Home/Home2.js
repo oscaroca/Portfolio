@@ -10,7 +10,7 @@ function Home2() {
         <Row>
           <Col md={8} className="home-about-description">
             <h1 style={{ fontSize: "2.6em" }}>
-              LET ME <span className="purple"> INTRODUCE </span> MYSELF
+              LET ME <span className="mainGreen"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
               I’m a Software Engineer who loves transforming ideas into
@@ -21,7 +21,7 @@ function Home2() {
               <br />
               I’m proficient in
               <i>
-                <b className="purple">
+                <b className="mainGreen">
                   {" "}
                   JavaScript, C++, Rust, Node.js, and Java{" "}
                 </b>
@@ -31,7 +31,7 @@ function Home2() {
               <br />
               My key areas of interest include developing
               <i>
-                <b className="purple">
+                <b className="mainGreen">
                   {" "}
                   Web Applications, Blockchain Solutions,{" "}
                 </b>
@@ -40,10 +40,10 @@ function Home2() {
               <br />
               <br />
               Whenever possible, I love building projects with
-              <b className="purple"> Node.js </b> and modern frameworks like{" "}
+              <b className="mainGreen"> Node.js </b> and modern frameworks like{" "}
               <i>
-                <b className="purple">React.js</b> and{" "}
-                <b className="purple">Next.js</b>.
+                <b className="mainGreen">React.js</b> and{" "}
+                <b className="mainGreen">Next.js</b>.
               </i>
             </p>
           </Col>
