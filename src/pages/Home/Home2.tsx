@@ -1,15 +1,16 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
-import Tilt from "react-parallax-tilt";
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import myImg from '../../Assets/avatar.svg';
+import Tilt from 'react-parallax-tilt';
+import '../../style.css';
 
-function Home2() {
+export default function Home2() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: "2.6em" }}>
+            <h1 style={{ fontSize: '2.6em' }}>
               LET ME <span className="mainGreen"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
@@ -22,8 +23,8 @@ function Home2() {
               I’m proficient in
               <i>
                 <b className="mainGreen">
-                  {" "}
-                  JavaScript, C++, Rust, Node.js, and Java{" "}
+                  {' '}
+                  JavaScript, C++, Rust, Node.js, and Java{' '}
                 </b>
               </i>
               — and I enjoy working across both backend and frontend stacks.
@@ -32,17 +33,17 @@ function Home2() {
               My key areas of interest include developing
               <i>
                 <b className="mainGreen">
-                  {" "}
-                  Web Applications, Blockchain Solutions,{" "}
+                  {' '}
+                  Web Applications, Blockchain Solutions,{' '}
                 </b>
               </i>
               and exploring new ways to bridge on-chain and off-chain systems.
               <br />
               <br />
               Whenever possible, I love building projects with
-              <b className="mainGreen"> Node.js </b> and modern frameworks like{" "}
+              <b className="mainGreen"> Node.js </b> and modern frameworks like{' '}
               <i>
-                <b className="mainGreen">React.js</b> and{" "}
+                <b className="mainGreen">React.js</b> and{' '}
                 <b className="mainGreen">Next.js</b>.
               </i>
             </p>
@@ -57,4 +58,3 @@ function Home2() {
     </Container>
   );
 }
-export default Home2;

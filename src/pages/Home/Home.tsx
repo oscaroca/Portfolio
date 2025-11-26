@@ -1,28 +1,45 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import homeLogo from "../../Assets/home-main.svg";
-import Particle from "../Particle";
-import Home2 from "./Home2";
-import Type from "./Type";
-import Techstack from "../About/Techstack";
-import Github from "../About/Github";
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import homeLogo from '../../assets/home-main.svg';
+// import Particle from '../../components/Particle';
+import Typewriter from 'typewriter-effect';
+import Home2 from './Home2';
+import '../../style.css';
+
 import {
   AiFillGithub,
   AiOutlineTwitter,
   AiFillInstagram,
-} from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+} from 'react-icons/ai';
+import { FaLinkedinIn } from 'react-icons/fa';
 
-function Home() {
+export default function Home() {
   return (
     <section>
-      <Container fluid className="home-section" id="home">
-        <Particle />
-        <Container className="home-content">
+      <Container
+        fluid
+        style={{
+          marginTop: '109px',
+          position: 'relative',
+          backgroundPosition: 'top center',
+          backgroundRepeat: 'no-repeat',
+          paddingBottom: '30px',
+          paddingTop: '30px',
+        }}
+        id="home"
+      >
+        {/* <Particle /> */}
+        <Container
+          style={{
+            padding: ' 9rem 0 2rem !important',
+            color: 'whitesmoke',
+            textAlign: 'left',
+          }}
+        >
           <Row>
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
-                Hi There!{" "}
+                Hi There!{' '}
                 <span className="wave" role="img" aria-labelledby="wave">
                   👋🏻
                 </span>
@@ -33,8 +50,20 @@ function Home() {
                 <strong className="main-name"> OSCAR BLAZQUEZ</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
-                <Type />
+              <div style={{ padding: 50, textAlign: 'left' }}>
+                <Typewriter
+                  options={{
+                    strings: [
+                      'Software Developer',
+                      'Freelancer',
+                      'MERN Stack Developer',
+                      'Open Source Contributor',
+                    ],
+                    autoStart: true,
+                    loop: true,
+                    deleteSpeed: 50,
+                  }}
+                />
               </div>
             </Col>
 
@@ -43,7 +72,7 @@ function Home() {
                 src={homeLogo}
                 alt="home pic"
                 className="img-fluid"
-                style={{ maxHeight: "450px" }}
+                style={{ maxHeight: '450px' }}
               />
             </Col>
           </Row>
@@ -52,7 +81,7 @@ function Home() {
       <Home2 />
 
       <Container>
-        <Row style={{ paddingTop: "50px", paddingBottom: "80px" }}>
+        <Row style={{ paddingTop: '50px', paddingBottom: '80px' }}>
           <Col md={12} className="home-about-social">
             <h1>Find Me On</h1>
             <p>
@@ -64,17 +93,17 @@ function Home() {
                   href="https://github.com/oscaroca"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <AiFillGithub />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="https://twitter.com/Soumyajit4419"
+                  href="https://twitter.com/yourusername"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <AiOutlineTwitter />
                 </a>
@@ -84,14 +113,14 @@ function Home() {
                   href="https://www.linkedin.com/in/oscarbj/"
                   target="_blank"
                   rel="noreferrer"
-                  className="icon-colour  home-social-icons"
+                  className="icon-colour home-social-icons"
                 >
                   <FaLinkedinIn />
                 </a>
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.instagram.com/soumyajit4419"
+                  href="https://www.instagram.com/yourusername"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
@@ -106,5 +135,3 @@ function Home() {
     </section>
   );
 }
-
-export default Home;

@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=PT+Mono&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'PT Mono', monospace !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+}
+
 html {
   --section-background-color: linear-gradient(
     to bottom left,
@@ -196,7 +206,7 @@ button:focus {
 }
 
 .navbar-nav .nav-item a::after {
-  content: "";
+  content: '';
   position: relative;
   display: block;
   height: 5px;
@@ -265,7 +275,6 @@ button:focus {
 .home-section {
   position: relative;
   z-index: -1;
-  /* background-image: var(--image-gradient), url(./Assets/home-bg.jpg); */
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -372,7 +381,7 @@ button:focus {
 }
 
 .home-social-icons::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -575,7 +584,10 @@ button:focus {
   transition: all 0.4s ease 0s !important;
   width: fit-content !important;
   cursor: pointer !important;
-  transition: outline-color 0.3s, outline-width 0.3s, transform 0.3s;
+  transition:
+    outline-color 0.3s,
+    outline-width 0.3s,
+    transform 0.3s;
   color: white;
 }
 
@@ -695,7 +707,7 @@ button:focus {
 }
 
 .resume .resume-item::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 16px;
   height: 16px;
