@@ -19,7 +19,7 @@ export default function Home() {
       <Container
         fluid
         style={{
-          marginTop: '109px',
+          marginTop: '130px',
           position: 'relative',
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',
