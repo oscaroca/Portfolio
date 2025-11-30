@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import homeLogo from '../../assets/home-main.svg';
 // import Particle from '../../components/Particle';
 import Typewriter from 'typewriter-effect';
-import Home2 from './Home2';
+import Introduction from './Introduction';
 import '../../style.css';
 
 import {
@@ -12,8 +12,10 @@ import {
   AiFillInstagram,
 } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
+import { useTranslation } from '../../hooks/useTranslation';
 
 export default function Home() {
+  const { t } = useTranslation();
   return (
     <section>
       <Container
@@ -21,14 +23,11 @@ export default function Home() {
         style={{
           marginTop: '130px',
           position: 'relative',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat',
           paddingBottom: '30px',
           paddingTop: '30px',
         }}
         id="home"
       >
-        {/* <Particle /> */}
         <Container
           style={{
             padding: ' 9rem 0 2rem !important',
@@ -39,24 +38,23 @@ export default function Home() {
           <Row>
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
-                Hi There!{' '}
+                {t('home.hello1')}{' '}
                 <span className="wave" role="img" aria-labelledby="wave">
                   👋🏻
                 </span>
               </h1>
-
               <h1 className="heading-name">
-                I'M
-                <strong className="main-name"> OSCAR BLAZQUEZ</strong>
+                {t('home.hello2')}
+                <strong className="main-name"> OSCAROCA </strong>
               </h1>
-
               <div style={{ padding: 50, textAlign: 'left' }}>
                 <Typewriter
                   options={{
                     strings: [
                       'Software Developer',
-                      'Freelancer',
-                      'MERN Stack Developer',
+                      '3D Artist',
+                      'Hardware Enthusiast',
+                      'Designer',
                       'Open Source Contributor',
                     ],
                     autoStart: true,
@@ -78,14 +76,16 @@ export default function Home() {
           </Row>
         </Container>
       </Container>
-      <Home2 />
+      <Introduction />
 
       <Container>
-        <Row style={{ paddingTop: '50px', paddingBottom: '80px' }}>
-          <Col md={12} className="home-about-social">
-            <h1>Find Me On</h1>
+        <Row style={{ paddingTop: '50px' }}>
+          <Col md={12} className="home-about-social" style={{ zIndex: 1 }}>
+            <h1>{t('home.social.findMe')}</h1>
             <p>
-              Feel free to <span className="mainGreen">connect </span>with me
+              {t('home.social.connect1')}
+              <span className="mainGreen">{t('home.social.connect2')}</span>
+              {t('home.social.connect3')}
             </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
@@ -100,32 +100,12 @@ export default function Home() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://twitter.com/yourusername"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiOutlineTwitter />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
                   href="https://www.linkedin.com/in/oscarbj/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
                 >
                   <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.instagram.com/yourusername"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <AiFillInstagram />
                 </a>
               </li>
             </ul>

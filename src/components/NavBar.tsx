@@ -15,6 +15,7 @@ import {
 } from 'react-icons/ai';
 
 import { CgFileDocument } from 'react-icons/cg';
+import { LanguageChanger } from './LanguageChanger';
 
 export default function NavBar() {
   const [expand, updateExpanded] = useState(false);
@@ -54,7 +55,12 @@ export default function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
+              <Nav.Link
+                as={Link}
+                to="/"
+                onClick={() => updateExpanded(false)}
+                style={{ textDecoration: 'none' }}
+              >
                 <AiOutlineHome style={{ marginBottom: '2px' }} /> Home
               </Nav.Link>
             </Nav.Item>
@@ -64,6 +70,7 @@ export default function NavBar() {
                 as={Link}
                 to="/about"
                 onClick={() => updateExpanded(false)}
+                style={{ textDecoration: 'none' }}
               >
                 <AiOutlineUser style={{ marginBottom: '2px' }} /> About
               </Nav.Link>
@@ -74,6 +81,7 @@ export default function NavBar() {
                 as={Link}
                 to="/project"
                 onClick={() => updateExpanded(false)}
+                style={{ textDecoration: 'none' }}
               >
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: '2px' }}
@@ -87,6 +95,7 @@ export default function NavBar() {
                 as={Link}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
+                style={{ textDecoration: 'none' }}
               >
                 <CgFileDocument style={{ marginBottom: '2px' }} /> Resume
               </Nav.Link>
@@ -97,13 +106,19 @@ export default function NavBar() {
                 href="https://soumyajitblogs.vercel.app/"
                 target="_blank"
                 rel="noreferrer"
+                style={{ textDecoration: 'none' }}
               >
                 <ImBlog style={{ marginBottom: '2px' }} /> Blogs
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="fork-btn">
+            <Nav.Item className="d-flex align-items-center">
+              <LanguageChanger />
+            </Nav.Item>
+
+            <Nav.Item className="fork-btn d-flex align-items-center">
               <Button
+                style={{ textDecoration: 'none' }}
                 href="https://github.com/oscaroca/Portfolio"
                 target="_blank"
                 className="fork-btn-inner"

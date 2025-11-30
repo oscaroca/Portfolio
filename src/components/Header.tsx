@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Header.css'; // Assuming you have a CSS file for styling
 
 const Header: React.FC = () => {
   return (
@@ -9,13 +8,19 @@ const Header: React.FC = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link style={{ textDecoration: 'none !important' }} to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link style={{ textDecoration: 'none !important' }} to="/about">
+              About
+            </Link>
           </li>
           <li>
-            <Link to="/projects">Projects</Link>
+            <Link style={{ textDecoration: 'none !important' }} to="/projects">
+              Projects
+            </Link>
           </li>
         </ul>
       </nav>

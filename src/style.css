@@ -388,7 +388,7 @@ button:focus {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #68187a;
+  background: #187a1d;
   transition: 0.5s;
   transform: scale(0.9);
   z-index: -1;
@@ -396,13 +396,13 @@ button:focus {
 
 .home-social-icons:hover::before {
   transform: scale(1.1);
-  box-shadow: 0 0 15px #801f95;
+  box-shadow: 0 0 15px #1f953c;
 }
 
 .home-social-icons:hover {
-  color: #87209e;
-  box-shadow: 0 0 5px #87209e;
-  text-shadow: 0 0 2px #87209e;
+  color: #209e20;
+  box-shadow: 0 0 5px #209e3b;
+  text-shadow: 0 0 2px #2f9e20;
 }
 
 .social-icons {
@@ -412,14 +412,14 @@ button:focus {
 }
 
 .icon-colour {
-  color: #700c86 !important;
+  color: #1a860c !important;
 }
 
 /* --------- */
 /* Footer */
 /* --------- */
 .footer {
-  background-color: rgb(10, 4, 22);
+  background-color: rgb(4, 22, 11);
   bottom: 0 !important;
   padding-top: 10px !important;
   padding-bottom: 8px !important ;
@@ -477,7 +477,7 @@ button:focus {
 }
 
 .project-card-view {
-  box-shadow: 0 4px 5px 3px rgba(119, 53, 136, 0.459) !important;
+  box-shadow: 0 4px 5px 3px rgba(60, 136, 53, 0.459) !important;
   color: white !important;
   background-color: transparent !important;
   opacity: 0.9 !important;
@@ -487,7 +487,7 @@ button:focus {
 .project-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
-  box-shadow: 0 4px 4px 5px rgba(129, 72, 144, 0.561) !important;
+  box-shadow: 0 4px 4px 5px rgba(72, 144, 78, 0.561) !important;
 }
 
 .blog-card {
@@ -500,7 +500,7 @@ button:focus {
 
 .blog-card-view {
   background-color: transparent !important;
-  box-shadow: 0 3px 3px 2px rgba(145, 77, 161, 0.459) !important;
+  box-shadow: 0 3px 3px 2px rgba(77, 161, 77, 0.459) !important;
   color: white !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
@@ -518,7 +518,7 @@ button:focus {
 .blog-card-view:hover {
   transform: scale(1.02) !important;
   overflow: hidden !important;
-  box-shadow: 0 3px 3px 5px rgba(155, 88, 173, 0.65) !important;
+  box-shadow: 0 3px 3px 5px rgba(88, 173, 102, 0.65) !important;
 }
 
 .card-img-top {
@@ -535,14 +535,14 @@ button:focus {
 
 .btn-primary {
   color: #fff !important;
-  background-color: #623686 !important;
-  border-color: #623686 !important;
+  background-color: #368643 !important;
+  border-color: #36864a !important;
 }
 
 .btn-primary:hover {
   color: #fff !important;
-  background-color: #6d20c5d7 !important;
-  border-color: #6d20c5d7 !important;
+  background-color: #20c55fd7 !important;
+  border-color: #20c551d7 !important;
 }
 .btn:focus {
   outline: none !important;
@@ -575,11 +575,11 @@ button:focus {
   margin: 15px !important;
   padding: 10px 20px !important;
   opacity: 0.93 !important;
-  outline: 1.7px solid rgba(200, 137, 230, 0.637) !important;
+  outline: 1.7px solid rgba(140, 230, 137, 0.637) !important;
   vertical-align: middle !important;
   text-align: center !important;
   border-radius: 24px !important;
-  box-shadow: 4px 5px 4px 3px rgba(89, 4, 168, 0.137) !important;
+  box-shadow: 4px 5px 4px 3px rgba(4, 168, 72, 0.137) !important;
   overflow: hidden !important;
   transition: all 0.4s ease 0s !important;
   width: fit-content !important;
@@ -607,7 +607,7 @@ button:focus {
 .tech-icons:hover {
   transform: scale(1.05) !important;
   overflow: hidden !important;
-  outline: 2.2px solid rgba(197, 115, 230, 0.883) !important;
+  outline: 2.2px solid rgba(115, 230, 167, 0.883) !important;
 }
 .tech-icon-images {
   height: 1.6rem;
@@ -678,7 +678,7 @@ button:focus {
 .resume .resume-item {
   padding: 0 0 10px 25px;
   margin-top: -2px;
-  border-left: 2px solid #8a49a8;
+  border-left: 2px solid #49a861;
   position: relative;
 }
 
@@ -715,7 +715,7 @@ button:focus {
   left: -9px;
   top: 0;
   background: #fff;
-  border: 2px solid #8a49a8;
+  border: 2px solid #49a851;
 }
 
 .like-item {
@@ -725,7 +725,7 @@ button:focus {
 }
 
 .like-btn {
-  background-color: #934cce5e !important;
+  background-color: #4cce6d5e !important;
   border-color: #934cce5e !important;
   padding: 0.25rem 0.98rem !important;
   border-radius: 5px !important;
@@ -735,8 +735,8 @@ button:focus {
 
 .like-btn:hover {
   transform: translateY(-2px) !important;
-  background-color: #a24dd386 !important;
-  border-color: #a24dd386 !important;
+  background-color: #4dd36a86 !important;
+  border-color: #5dd34d86 !important;
 }
 
 .animate-like {
@@ -752,15 +752,48 @@ button:focus {
     transform: scale(1);
   }
 }
+.language-select-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.language-select {
+  font-size: 1.1em;
+  padding: 0.25rem 1.1rem;
+  background-color: #4cce875e;
+  border: 1px solid #4cce875e;
+  border-radius: 8px;
+  vertical-align: middle;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  appearance: none; /* Remove default browser arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-size: 15px;
+}
+
+/* Hover/lift to match .fork-btn-inner:hover */
+.language-select:hover {
+  transform: translateY(-2px);
+  background-color: #4dd36e86;
+  border-color: #4dd35486;
+}
+
+/* Option styling */
+.language-select option {
+  background: #4dd36e;
+  color: black;
+}
 
 .fork-btn {
   font-size: 1.1em !important;
-  padding-top: 10px !important;
 }
 
 .fork-btn-inner {
   line-height: 1.4em !important;
-  background-color: #934cce5e !important;
+  background-color: #4cce875e !important;
   padding: 0.25rem 1.1rem !important;
   vertical-align: middle !important;
   text-align: center !important;
@@ -768,8 +801,8 @@ button:focus {
 
 .fork-btn-inner:hover {
   transform: translateY(-2px) !important;
-  background-color: #a24dd386 !important;
-  border-color: #a24dd386 !important;
+  background-color: #4dd36e86 !important;
+  border-color: #4dd35486 !important;
 }
 .fork-btn-inner::after {
   display: none !important;

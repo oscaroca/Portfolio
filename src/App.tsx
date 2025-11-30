@@ -22,6 +22,7 @@ import { Particles, initParticlesEngine } from '@tsparticles/react';
 import type { Engine, ISourceOptions } from '@tsparticles/engine';
 import { loadAll } from '@tsparticles/all';
 
+import { TranslationsContextProvider } from './context/translationContext/TranslationContext';
 import particlesOptions from './particles.json';
 
 export default function App() {
@@ -52,24 +53,26 @@ export default function App() {
         <Particles id="tsparticles" options={particlesOptions as any} />
       )}
 
-      <Router>
-        <Preloader loaded={loading} />
+      <TranslationsContextProvider>
+        <Router>
+          <Preloader loaded={loading} />
 
-        <div className="App" id={loading ? 'no-scroll' : 'scroll'}>
-          <Navbar />
-          <ScrollToTop />
+          <div className="App" id={loading ? 'no-scroll' : 'scroll'}>
+            <Navbar />
+            <ScrollToTop />
 
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/project" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            {/* <Route path="/resume" element={<Resume />} /> */}
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/project" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              {/* <Route path="/resume" element={<Resume />} /> */}
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
 
-          <Footer />
-        </div>
-      </Router>
+            <Footer />
+          </div>
+        </Router>
+      </TranslationsContextProvider>
     </div>
   );
 }
