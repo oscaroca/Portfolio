@@ -38,7 +38,7 @@ export const LanguageChanger: React.FC<LanguageChangerProps> = ({
       className="language-select-container"
       style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
     >
-      <FaGlobe size={20} />
+      {/* <FaGlobe size={20} /> */}
       <select
         className={`language-select`}
         value={lang}
