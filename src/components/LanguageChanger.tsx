@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { FaGlobe } from 'react-icons/fa';
 import { Lang } from '../context/translationContext/TranslationContext';
 import { useTranslation } from '../hooks/useTranslation';
 
@@ -33,23 +32,28 @@ export const LanguageChanger: React.FC<LanguageChangerProps> = ({
     }
   }, [lang, language]);
 
+  const handleToggle = () => {
+    setLang(lang === 'en' ? 'es' : 'en');
+  };
+
   return (
-    <div
-      className="language-select-container"
-      style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-    >
-      {/* <FaGlobe size={20} /> */}
-      <select
-        className={`language-select`}
-        value={lang}
-        onChange={(e) => setLang(e.target.value as Lang)}
+    <div className="language-pill">
+      <span
+        className={`pill-option ${lang === 'es' ? 'active' : ''}`}
+        onClick={() => setLang('es')}
       >
-        {(Object.keys(languages) as Lang[]).map((code) => (
-          <option key={code} value={code}>
-            {languages[code]}
-          </option>
-        ))}
-      </select>
+        ES
+      </span>
+      <span
+        className={`pill-option ${lang === 'en' ? 'active' : ''}`}
+        onClick={() => setLang('en')}
+      >
+        EN
+      </span>
+      <div
+        className="pill-slider"
+        style={{ transform: `translateX(${lang === 'en' ? '100%' : '0%'})` }}
+      ></div>
     </div>
   );
 };

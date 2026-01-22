@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import homeLogo from '../../assets/home-main.svg';
+import homeLogo from '../../assets/home-main.png';
 // import Particle from '../../components/Particle';
 
 import Introduction from './Introduction';
@@ -67,7 +67,7 @@ export default function Home() {
                 src={homeLogo}
                 alt="home pic"
                 className="img-fluid"
-                style={{ maxHeight: '450px' }}
+                style={{ maxHeight: '600px', maxWidth: '600px' }}
               />
             </Col>
           </Row>
@@ -79,11 +79,6 @@ export default function Home() {
         <Row style={{ paddingTop: '50px' }}>
           <Col md={12} className="home-about-social" style={{ zIndex: 1 }}>
             <h1>{t('home.social.findMe')}</h1>
-            <p>
-              {t('home.social.connect1')}
-              <span className="mainGreen">{t('home.social.connect2')}</span>
-              {t('home.social.connect3')}
-            </p>
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
@@ -106,6 +101,11 @@ export default function Home() {
                 </a>
               </li>
             </ul>
+            <p>
+              {t('home.social.connect1')}
+              <span className="mainGreen">{t('home.social.connect2')}</span>
+              {t('home.social.connect3')}
+            </p>
           </Col>
         </Row>
       </Container>
