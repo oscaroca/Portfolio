@@ -112,11 +112,29 @@ export default function NavBar() {
               </Nav.Link>
             </Nav.Item>
 
-            <Nav.Item className="d-flex align-items-center">
+            <div className="d-flex justify-content-center w-100 d-md-none">
+              <Nav.Item className="d-flex align-items-center mx-2">
+                <LanguageChanger />
+              </Nav.Item>
+
+              <Nav.Item className="fork-btn d-flex align-items-center mx-2">
+                <Button
+                  style={{ textDecoration: 'none' }}
+                  href="https://github.com/oscaroca/Portfolio"
+                  target="_blank"
+                  className="fork-btn-inner"
+                >
+                  <CgGitFork style={{ fontSize: '1.2em' }} />{' '}
+                  <AiFillStar style={{ fontSize: '1.1em' }} />
+                </Button>
+              </Nav.Item>
+            </div>
+
+            <Nav.Item className="d-none d-md-flex align-items-center">
               <LanguageChanger />
             </Nav.Item>
 
-            <Nav.Item className="fork-btn d-flex align-items-center">
+            <Nav.Item className="fork-btn d-none d-md-flex align-items-center">
               <Button
                 style={{ textDecoration: 'none' }}
                 href="https://github.com/oscaroca/Portfolio"
