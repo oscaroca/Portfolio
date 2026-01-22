@@ -1,0 +1,104 @@
+/* ===========================================
+   Color Constants - Centralized Color Palette
+   =========================================== */
+
+:root {
+  /* ===== Base Color Palette ===== */
+
+  /* Primary Green */
+  --color-green-primary: #60ce65;
+  --color-green-dark: #187a1d;
+  --color-green-light: #4dd36e;
+
+  /* Background Colors */
+  --color-bg-primary: rgb(75, 75, 75);
+  --color-bg-secondary: rgba(36, 36, 36, 0.952);
+  --color-bg-dark: #0f0f0f;
+  --color-bg-navbar: rgba(58, 58, 58, 0.185);
+  --color-bg-dark-overlay: rgba(32, 32, 32, 0.267);
+
+  /* Text Colors */
+  --color-text-white: white;
+  --color-text-light: rgb(250, 250, 250);
+  --color-text-accent: #88c09d;
+
+  /* Dark Green (formerly purple) */
+  --color-green-darker: #1d5029;
+
+  /* Gray Colors */
+  --color-gray-light: #6b6b6b;
+  --color-gray-dark: #5a5a5a;
+
+  /* ===== Semantic Colors (using base colors) ===== */
+
+  /* Main/Primary */
+  --main-color: var(--color-green-primary);
+  --imp-text-color: var(--main-color); /* Backward compatibility */
+
+  /* Backgrounds */
+  --bg-primary: var(--color-bg-primary);
+  --bg-secondary: var(--color-bg-secondary);
+  --bg-preloader: var(--color-bg-dark);
+  --bg-navbar: var(--color-bg-navbar);
+  --bg-navbar-mobile: rgba(24, 26, 39, 1);
+  --bg-footer: var(--color-bg-dark);
+  --bg-white: rgba(255, 255, 255, 0.972);
+
+  /* Text */
+  --text-white: var(--color-text-white);
+  --text-whitesmoke: whitesmoke;
+  --text-light: var(--color-text-light);
+
+  /* Scrollbar */
+  --scrollbar-track: var(--color-green-darker);
+
+  /* Footer */
+  --footer-text: var(--color-text-accent);
+
+  /* Buttons & Interactive Elements */
+  --button-bg: var(--color-green-dark);
+  --button-bg-hover: var(--color-green-light);
+  --button-border: var(--color-green-dark);
+  --button-border-hover: var(--color-green-light);
+
+  /* Icons */
+  --icon-color: var(--color-green-dark);
+
+  /* Shadows & Effects */
+  --shadow-navbar: rgba(9, 5, 29, 0.171);
+  --shadow-green: rgba(60, 136, 53, 0.459);
+  --shadow-green-hover: rgba(72, 144, 78, 0.561);
+
+  /* Transparent Backgrounds */
+  --bg-green-transparent: rgba(76, 206, 109, 0.37);
+  --bg-dark-transparent: var(--color-bg-dark-overlay);
+
+  /* Outlines */
+  --outline-green: rgba(140, 230, 137, 0.637);
+  --outline-green-hover: rgba(115, 230, 167, 0.883);
+
+  /* Resume */
+  --resume-border: var(--color-green-primary);
+  --resume-title-bg: rgba(52, 121, 66, 0.36);
+
+  /* ===== Gradients ===== */
+  --gradient-background: linear-gradient(
+    to left,
+    var(--bg-primary),
+    var(--bg-secondary)
+  );
+  --gradient-section: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.582),
+    var(--bg-dark-transparent)
+  );
+  --gradient-image: linear-gradient(
+    to bottom left,
+    rgba(17, 16, 16, 0.678),
+    rgba(12, 10, 22, 0.863)
+  );
+
+  /* ===== Legacy Support ===== */
+  --app-header-bg: #262725;
+  --app-link: #61dafb;
+}

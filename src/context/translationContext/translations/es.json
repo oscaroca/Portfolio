@@ -1,0 +1,23 @@
+{
+  "home": {
+    "hello1": "¡Hola!",
+    "hello2": "SOY",
+    "intro": {
+      "title1": "PERMÍTEME",
+      "title2": "PRESENTARME",
+      "title3": "",
+      "body1": "Soy un Ingeniero de Software que disfruta resolver problemas complejos y convertir desafíos en soluciones simples y confiables.",
+      "stackLead": "Tengo dominio de",
+      "stack": "Python, React, TypeScript, JavaScript, Node.js",
+      "interestsLead": "Mis principales áreas de interés incluyen",
+      "interests": "Resolución de Problemas, Machine Learning, Ciencia de Datos",
+      "toolsLead": "También me gusta explorar nuevas formas de mejorar las pequeñas cosas del dia a dia."
+    },
+    "social": {
+      "findMe": "Encuéntrame en",
+      "connect1": "No dudes en ",
+      "connect2": "contactarme",
+      "connect3": ""
+    }
+  }
+}
