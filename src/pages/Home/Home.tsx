@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import homeLogo from '../../assets/home-main.svg';
 // import Particle from '../../components/Particle';
-import Typewriter from 'typewriter-effect';
+
 import Introduction from './Introduction';
 import '../../style.css';
 
@@ -13,6 +13,7 @@ import {
 } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { useTranslation } from '../../hooks/useTranslation';
+import TypewriterStack from '../../components/TypewriterStack';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -48,19 +49,15 @@ export default function Home() {
                 <strong className="main-name"> OSCAROCA </strong>
               </h1>
               <div style={{ padding: 50, textAlign: 'left' }}>
-                <Typewriter
-                  options={{
-                    strings: [
-                      'Software Developer',
-                      '3D Artist',
-                      'Hardware Enthusiast',
-                      'Designer',
-                      'Open Source Contributor',
-                    ],
-                    autoStart: true,
-                    loop: true,
-                    deleteSpeed: 50,
-                  }}
+                <TypewriterStack
+                  lines={[
+                    'Software Developer',
+                    '3D Artist',
+                    'Hardware Enthusiast',
+                    'Designer',
+                    'Open Source Contributor',
+                  ]}
+                  loop={true}
                 />
               </div>
             </Col>
