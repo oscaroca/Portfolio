@@ -103,7 +103,7 @@ export default function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                href="https://soumyajitblogs.vercel.app/"
+                href="https://memebase.cheezburger.com/"
                 target="_blank"
                 rel="noreferrer"
                 style={{ textDecoration: 'none' }}
