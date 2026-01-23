@@ -2,18 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Lang } from '../context/translationContext/TranslationContext';
 import { useTranslation } from '../hooks/useTranslation';
 
-type LanguageChangerProps = {
-  className?: string;
-};
-
-const languages: Record<Lang, string> = {
-  es: 'ES',
-  en: 'EN',
-};
-
-export const LanguageChanger: React.FC<LanguageChangerProps> = ({
-  className,
-}) => {
+export const LanguageChanger: React.FC = ({}) => {
   const { language, setLanguage } = useTranslation();
 
   const initialLang: Lang = useMemo(() => {
@@ -23,36 +12,29 @@ export const LanguageChanger: React.FC<LanguageChangerProps> = ({
     return language?.startsWith('es') ? 'es' : 'en';
   }, [language]);
 
-  const [lang, setLang] = useState<Lang>(initialLang);
-
   useEffect(() => {
-    if (language !== lang) setLanguage(lang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('lang', lang);
-    }
-  }, [lang, language]);
-
-  const handleToggle = () => {
-    setLang(lang === 'en' ? 'es' : 'en');
-  };
+    setLanguage(initialLang);
+  }, []);
 
   return (
     <div className="language-pill">
       <span
-        className={`pill-option ${lang === 'es' ? 'active' : ''}`}
-        onClick={() => setLang('es')}
+        className={`pill-option ${language === 'es' ? 'active' : ''}`}
+        onClick={() => setLanguage('es')}
       >
         ES
       </span>
       <span
-        className={`pill-option ${lang === 'en' ? 'active' : ''}`}
-        onClick={() => setLang('en')}
+        className={`pill-option ${language === 'en' ? 'active' : ''}`}
+        onClick={() => setLanguage('en')}
       >
         EN
       </span>
       <div
         className="pill-slider"
-        style={{ transform: `translateX(${lang === 'en' ? '100%' : '0%'})` }}
+        style={{
+          transform: `translateX(${language === 'en' ? '100%' : '0%'})`,
+        }}
       ></div>
     </div>
   );
