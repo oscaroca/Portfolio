@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,7 +15,7 @@ import Navbar from './components/NavBar';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home/Home';
 import About from './pages/About';
-import Projects from './pages/Projects';
+import Projects from './pages/Projects/Projects';
 import Footer from './components/Footer';
 
 import { Particles, initParticlesEngine } from '@tsparticles/react';
@@ -24,13 +24,14 @@ import { loadAll } from '@tsparticles/all';
 
 import { TranslationsContextProvider } from './context/translationContext/TranslationContext';
 import particlesOptions from './particles.json';
+import { googleDriveService } from './services/googleDrive';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [particlesReady, setParticlesReady] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1200);
+    const timer = setTimeout(() => setLoading(false), 600);
     return () => clearTimeout(timer);
   }, []);
 
