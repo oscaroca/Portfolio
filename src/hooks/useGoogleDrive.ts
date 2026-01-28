@@ -30,19 +30,21 @@ export function useGoogleDriveIndex(
 }
 
 /**
- * Hook to fetch Google Doc content
+ * Hook to fetch Google Doc content with language support
  * @param repository - GoogleDriveRepository instance
  * @param fileId - The ID of the Google Drive file
+ * @param language - Language code for cache invalidation
  * @param enabled - Whether to enable this query (default: true)
  * @returns Query result with data, loading, and error states
  */
 export function useFetchGoogleDoc(
   repository: GoogleDriveRepository,
   fileId: string | null,
+  language: 'es' | 'en' = 'en',
   enabled: boolean = !!fileId,
 ) {
   return useQuery<string | null, Error>({
-    queryKey: ['googleDrive', 'document', fileId],
+    queryKey: ['googleDrive', 'document', fileId, language],
     queryFn: () => repository.getDocumentContent(fileId!),
     enabled: enabled && !!fileId,
     // Cache document content for 1 hour

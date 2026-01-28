@@ -42,6 +42,29 @@ button:focus {
   display: none;
 } */
 
+/* Content Loader */
+/* --------- */
+#content-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-image: url(./Assets/pre.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+#content-loader-none {
+  opacity: 0;
+  pointer-events: none;
+}
+
 #no-scroll {
   overflow: hidden;
   height: 100vh;

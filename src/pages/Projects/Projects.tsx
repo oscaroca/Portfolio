@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { googleDriveRepository } from '../../services/googleDrive';
 import { GoogleFileIndexEntry } from '../../services/googleDrive/domain/GoogleFileIndexEntry';
 import { Container } from 'react-bootstrap';
@@ -6,6 +7,7 @@ import { Article } from './Article';
 import { ArticlePreview } from './ArticlePreview';
 import { render } from '@react-pdf/renderer';
 import { useTranslation } from '../../hooks/useTranslation';
+import ContentLoader from '../../components/ContentLoader';
 import {
   useGoogleDriveIndex,
   useFetchGoogleDoc,
@@ -19,43 +21,54 @@ export interface selectedFile {
 
 export default function Projects() {
   const { language } = useTranslation();
-  const [selectedFileId, setSelectedFileId] = useState<string | null>(null);
-  const [selectedFile, setSelectedFile] = useState<selectedFile | null>(null);
+  const { projectId } = useParams<{ projectId?: string }>();
+  const navigate = useNavigate();
+  const [selectedFile, setSelectedFile] = React.useState<selectedFile | null>(
+    null,
+  );
 
-  // Fetch file index with automatic caching
+  // Fetch file index with automatic caching (automatically refetches when language changes)
   const { data: files = [], isLoading } = useGoogleDriveIndex(
     googleDriveRepository,
     language,
   );
 
-  // Fetch document content with automatic caching
-  const { data: documentContent } = useFetchGoogleDoc(
-    googleDriveRepository,
-    selectedFileId,
-    !!selectedFileId,
-  );
+  // Fetch document content with automatic caching (language is included in queryKey via projectId + language dependency)
+  const { data: documentContent, isLoading: isLoadingContent } =
+    useFetchGoogleDoc(
+      googleDriveRepository,
+      projectId || null,
+      language,
+      !!projectId,
+    );
 
-  // Update selectedFile when document content is loaded
-  React.useEffect(() => {
-    if (selectedFileId && documentContent !== undefined) {
-      const entry = files.find((f) => f.id === selectedFileId);
+  // Update selectedFile when document content is loaded or language changes
+  useEffect(() => {
+    if (projectId && documentContent !== undefined) {
+      const entry = files.find((f) => f.id === projectId);
       if (entry) {
         setSelectedFile({
-          id: selectedFileId,
+          id: projectId,
           content: documentContent || '',
           entry,
         });
       }
     }
-  }, [selectedFileId, documentContent, files]);
+  }, [projectId, documentContent, files, language]);
+
+  // Sync URL params with state
+  useEffect(() => {
+    if (!projectId && selectedFile) {
+      setSelectedFile(null);
+    }
+  }, [projectId]);
 
   const handleFileSelect = (fileId: string) => {
-    setSelectedFileId(fileId);
+    navigate(`/project/${fileId}`);
   };
 
   const handleBack = () => {
-    setSelectedFileId(null);
-    setSelectedFile(null);
+    navigate('/project');
   };
 
   console.log('Files:', files);
@@ -64,7 +77,7 @@ export default function Projects() {
     return (
       <div>
         {isLoading ? (
-          <p>Loading projects...</p>
+          <ContentLoader isLoading={isLoading} />
         ) : (
           <div
             style={{
@@ -92,6 +105,7 @@ export default function Projects() {
     }
     return <Article document={selectedFile} onBack={handleBack} />;
   };
+  const isLoaderContentNeeded = projectId ? isLoadingContent : false;
 
   return (
     <section>
@@ -104,7 +118,15 @@ export default function Projects() {
         }}
         id="home"
       >
-        {selectedFile ? renderContentFile() : renderContentList()}
+        <div style={{ position: 'relative', minHeight: '300px' }}>
+          {isLoaderContentNeeded ? (
+            <ContentLoader isLoading={isLoaderContentNeeded} />
+          ) : projectId && selectedFile ? (
+            renderContentFile()
+          ) : (
+            renderContentList()
+          )}
+        </div>
       </Container>
     </section>
   );
