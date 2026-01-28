@@ -1,5 +1,6 @@
 import { googleDriveService } from '../../services/googleDrive';
 import { GoogleFileIndexEntry } from '../../services/googleDrive/domain/GoogleFileIndexEntry';
+import { colors } from '../../utils/colors';
 import './ArticlePreviewCSS.css';
 
 export function ArticlePreview({
@@ -39,9 +40,16 @@ export function ArticlePreview({
           alignItems: 'flex-start',
         }}
       >
-        <h4 className="line-clamp-2">{file.title}</h4>
+        <h4 className="line-clamp-2" style={{ fontSize: '18px' }}>
+          {file.title}
+        </h4>
 
-        <p className="line-clamp-3">{file.description}</p>
+        <p
+          className="line-clamp-3"
+          style={{ color: colors.gray, fontSize: '12px', alignSelf: 'stretch' }}
+        >
+          {file.description}
+        </p>
       </div>
     </div>
   );

@@ -98,7 +98,13 @@ export default function Home() {
             </ul>
             <p>
               {t('home.social.connect1')}
-              <span className="mainGreen">{t('home.social.connect2')}</span>
+              <span className="mainGreen">
+                {
+                  <a href="mailto:contact@oscaroca.com" className="mainGreen">
+                    {t('home.social.connect2')}
+                  </a>
+                }
+              </span>
               {t('home.social.connect3')}
             </p>
           </Col>

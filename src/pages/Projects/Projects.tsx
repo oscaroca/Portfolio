@@ -1,10 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { googleDriveService } from '../../services/googleDrive';
+import React, { useState } from 'react';
+import { googleDriveRepository } from '../../services/googleDrive';
 import { GoogleFileIndexEntry } from '../../services/googleDrive/domain/GoogleFileIndexEntry';
 import { Container } from 'react-bootstrap';
 import { Article } from './Article';
 import { ArticlePreview } from './ArticlePreview';
 import { render } from '@react-pdf/renderer';
+import { useTranslation } from '../../hooks/useTranslation';
+import {
+  useGoogleDriveIndex,
+  useFetchGoogleDoc,
+} from '../../hooks/useGoogleDrive';
 
 export interface selectedFile {
   id: string;
@@ -13,26 +18,44 @@ export interface selectedFile {
 }
 
 export default function Projects() {
-  const [files, setFiles] = useState<GoogleFileIndexEntry[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
+  const { language } = useTranslation();
+  const [selectedFileId, setSelectedFileId] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<selectedFile | null>(null);
-  useEffect(() => {
-    async function fetchFiles() {
-      const fetchedFiles = await googleDriveService.fetchIndex();
-      setFiles(fetchedFiles);
-      setLoading(false);
-    }
-    fetchFiles();
-  }, []);
 
-  const fetchFileContent = async (fileId: string) => {
-    const html = await googleDriveService.fetchGoogleDoc(fileId);
-    setSelectedFile({
-      id: fileId,
-      content: html || '',
-      entry: files.find((f) => f.id === fileId)!,
-    });
+  // Fetch file index with automatic caching
+  const { data: files = [], isLoading } = useGoogleDriveIndex(
+    googleDriveRepository,
+    language,
+  );
+
+  // Fetch document content with automatic caching
+  const { data: documentContent } = useFetchGoogleDoc(
+    googleDriveRepository,
+    selectedFileId,
+    !!selectedFileId,
+  );
+
+  // Update selectedFile when document content is loaded
+  React.useEffect(() => {
+    if (selectedFileId && documentContent !== undefined) {
+      const entry = files.find((f) => f.id === selectedFileId);
+      if (entry) {
+        setSelectedFile({
+          id: selectedFileId,
+          content: documentContent || '',
+          entry,
+        });
+      }
+    }
+  }, [selectedFileId, documentContent, files]);
+
+  const handleFileSelect = (fileId: string) => {
+    setSelectedFileId(fileId);
+  };
+
+  const handleBack = () => {
+    setSelectedFileId(null);
+    setSelectedFile(null);
   };
 
   console.log('Files:', files);
@@ -40,7 +63,7 @@ export default function Projects() {
   const renderContentList = () => {
     return (
       <div>
-        {loading ? (
+        {isLoading ? (
           <p>Loading projects...</p>
         ) : (
           <div
@@ -52,8 +75,9 @@ export default function Projects() {
           >
             {files.map((file) => (
               <ArticlePreview
+                key={file.id}
                 file={file}
-                onClick={() => fetchFileContent(file.id)}
+                onClick={() => handleFileSelect(file.id)}
               />
             ))}
           </div>
@@ -66,14 +90,7 @@ export default function Projects() {
     if (!selectedFile) {
       return <p>Loading file content...</p>;
     }
-    return (
-      <Article
-        document={selectedFile}
-        onBack={() => {
-          setSelectedFile(null);
-        }}
-      />
-    );
+    return <Article document={selectedFile} onBack={handleBack} />;
   };
 
   return (

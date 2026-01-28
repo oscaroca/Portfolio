@@ -3,16 +3,18 @@ import { GoogleFileIndexEntry } from './domain/GoogleFileIndexEntry';
 // GoogleDriveService.ts
 export class GoogleDriveService {
   private apiKey: string;
-  private indexFileId: string;
+  private indexFileIdES: string;
+  private indexFileIdEN: string;
 
-  constructor(apiKey: string, indexFileId: string) {
+  constructor(apiKey: string, indexFileIdES: string, indexFileIdEN: string) {
     this.apiKey = apiKey;
-    this.indexFileId = indexFileId;
+    this.indexFileIdES = indexFileIdES;
+    this.indexFileIdEN = indexFileIdEN;
   }
 
-  async fetchIndex(): Promise<GoogleFileIndexEntry[]> {
+  async fetchIndex(language: 'es' | 'en'): Promise<GoogleFileIndexEntry[]> {
     const res = await fetch(
-      `https://www.googleapis.com/drive/v3/files/${this.indexFileId}?alt=media&key=${this.apiKey}`,
+      `https://www.googleapis.com/drive/v3/files/${language === 'es' ? this.indexFileIdES : this.indexFileIdEN}?alt=media&key=${this.apiKey}`,
     );
 
     console.log('Google Drive fetchIndex response:', res);

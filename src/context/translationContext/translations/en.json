@@ -15,9 +15,9 @@
     },
     "social": {
       "findMe": "Find Me On",
-      "connect1": "Feel free to ",
-      "connect2": "connect",
-      "connect3": " with me"
+      "connect1": "Or feel free to ",
+      "connect2": "write",
+      "connect3": " me"
     }
   }
 }
