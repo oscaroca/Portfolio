@@ -26,6 +26,7 @@ import { loadAll } from '@tsparticles/all';
 import { TranslationsContextProvider } from './context/translationContext/TranslationContext';
 import particlesOptions from './particles.json';
 import { googleDriveService } from './services/googleDrive';
+import Resume from './pages/resume';
 
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -80,7 +81,7 @@ export default function App() {
                 <Route path="/project" element={<Projects />} />
                 <Route path="/project/:projectId" element={<Projects />} />
                 <Route path="/about" element={<About />} />
-                {/* <Route path="/resume" element={<Resume />} /> */}
+                <Route path="/resume" element={<Resume />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
 

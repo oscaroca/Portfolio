@@ -46,4 +46,21 @@ export class GoogleDriveService {
     const html = await res.text();
     return html;
   }
+
+  async fetchFile(fileId: string): Promise<Blob | null> {
+    const url = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${this.apiKey}`;
+
+    try {
+      const res = await fetch(url);
+      if (!res.ok) {
+        console.error('Failed to fetch file from Google Drive', res.status);
+        return null;
+      }
+      const blob = await res.blob();
+      return blob;
+    } catch (error) {
+      console.error('Error fetching file from Google Drive', error);
+      return null;
+    }
+  }
 }

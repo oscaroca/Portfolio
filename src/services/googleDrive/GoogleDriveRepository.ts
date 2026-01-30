@@ -51,6 +51,19 @@ export class GoogleDriveRepository {
   }
 
   /**
+   * Fetch raw file blob (e.g., PDF) from Google Drive
+   */
+  async getFileBlob(fileId: string): Promise<Blob | null> {
+    try {
+      const blob = await this.service.fetchFile(fileId);
+      return blob;
+    } catch (error) {
+      console.error(`Failed to fetch file blob for file ${fileId}:`, error);
+      throw error;
+    }
+  }
+
+  /**
    * Get the preview URL for a file
    * @param fileId - The ID of the Google Drive file
    * @returns string - The preview URL
