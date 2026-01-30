@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, use } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Navigate,
 } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
@@ -15,7 +16,7 @@ import Navbar from './components/NavBar';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home/Home';
 import About from './pages/About';
-import Projects from './pages/Projects';
+import Projects from './pages/Projects/Projects';
 import Footer from './components/Footer';
 
 import { Particles, initParticlesEngine } from '@tsparticles/react';
@@ -24,13 +25,26 @@ import { loadAll } from '@tsparticles/all';
 
 import { TranslationsContextProvider } from './context/translationContext/TranslationContext';
 import particlesOptions from './particles.json';
+import { googleDriveService } from './services/googleDrive';
+import Resume from './pages/resume';
+
+// Create a client for React Query
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 2,
+      refetchOnWindowFocus: true,
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    },
+  },
+});
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [particlesReady, setParticlesReady] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1200);
+    const timer = setTimeout(() => setLoading(false), 600);
     return () => clearTimeout(timer);
   }, []);
 
@@ -43,36 +57,39 @@ export default function App() {
   }, []);
 
   return (
-    <div
-      style={{
-        color: 'var(--main-color)',
-        background: 'var(--section-background-color)',
-      }}
-    >
-      {particlesReady && (
-        <Particles id="tsparticles" options={particlesOptions as any} />
-      )}
+    <QueryClientProvider client={queryClient}>
+      <div
+        style={{
+          color: 'var(--main-color)',
+          background: 'var(--section-background-color)',
+        }}
+      >
+        {particlesReady && (
+          <Particles id="tsparticles" options={particlesOptions as any} />
+        )}
 
-      <TranslationsContextProvider>
-        <Router>
-          <Preloader loaded={loading} />
+        <TranslationsContextProvider>
+          <Router>
+            <Preloader loaded={loading} />
 
-          <div className="App" id={loading ? 'no-scroll' : 'scroll'}>
-            <Navbar />
-            <ScrollToTop />
+            <div className="App" id={loading ? 'no-scroll' : 'scroll'}>
+              <Navbar />
+              <ScrollToTop />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/project" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-              {/* <Route path="/resume" element={<Resume />} /> */}
-              <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/project" element={<Projects />} />
+                <Route path="/project/:projectId" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/resume" element={<Resume />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </Routes>
 
-            <Footer />
-          </div>
-        </Router>
-      </TranslationsContextProvider>
-    </div>
+              <Footer />
+            </div>
+          </Router>
+        </TranslationsContextProvider>
+      </div>
+    </QueryClientProvider>
   );
 }

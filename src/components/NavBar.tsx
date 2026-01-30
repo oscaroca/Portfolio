@@ -85,7 +85,7 @@ export default function NavBar() {
               >
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: '2px' }}
-                />{' '}
+                />
                 Projects
               </Nav.Link>
             </Nav.Item>
@@ -98,17 +98,6 @@ export default function NavBar() {
                 style={{ textDecoration: 'none' }}
               >
                 <CgFileDocument style={{ marginBottom: '2px' }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                href="https://memebase.cheezburger.com/"
-                target="_blank"
-                rel="noreferrer"
-                style={{ textDecoration: 'none' }}
-              >
-                <ImBlog style={{ marginBottom: '2px' }} /> Blogs
               </Nav.Link>
             </Nav.Item>
 
