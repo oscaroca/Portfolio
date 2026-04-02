@@ -194,16 +194,14 @@ button:focus {
   align-items: center;
   gap: 0.5rem;
 
-  /* FF6-style double border */
   background: rgba(8, 6, 20, 0.92);
   border: 2px solid var(--color-amber-dark);
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.9),          /* outer black gap */
-    0 0 0 3px rgba(196, 145, 58, 0.25),     /* soft amber glow ring */
-    inset 0 0 0 1px rgba(245, 200, 66, 0.1); /* inner highlight */
-  border-radius: 2px;                       /* sharp pixel corners */
+    0 0 0 1px rgba(0, 0, 0, 0.9),
+    0 0 0 3px rgba(76, 144, 87, 0.22),
+    inset 0 0 0 1px rgba(159, 220, 127, 0.08);
+  border-radius: 10px;
   padding: 4px 10px;
-  image-rendering: pixelated;
 }
 
 /* Corner decorations — top-left and bottom-right pixel "notches" */
@@ -473,7 +471,7 @@ button:focus {
     rgba(232, 165, 152, 0.04) 100%
   );
   border: 1px solid rgba(245, 200, 66, 0.2);
-  border-radius: 4px;
+  border-radius: 10px;
   padding: 2rem 2.5rem;
   box-shadow:
     0 0 40px rgba(245, 200, 66, 0.06),
@@ -494,7 +492,7 @@ button:focus {
     var(--color-rose),
     var(--color-sage)
   );
-  border-radius: 4px 0 0 4px;
+  border-radius: 10px 0 0 10px;
   opacity: 0.6;
 }
 
@@ -856,7 +854,7 @@ footer nav a:hover {
   background-color: var(--bg-amber-transparent) !important;
   border-color: var(--bg-amber-transparent) !important;
   padding: 0.25rem 0.98rem !important;
-  border-radius: 5px !important;
+  border-radius: 10px !important;
   line-height: 1.4 !important;
   transition: 0.3s ease !important;
 }
@@ -890,7 +888,7 @@ footer nav a:hover {
   padding: 0.25rem 1.1rem;
   background-color: rgba(245, 200, 66, 0.08);
   border: 1px solid rgba(245, 200, 66, 0.25);
-  border-radius: 6px;
+  border-radius: 10px;
   vertical-align: middle;
   text-align: center;
   color: var(--color-cream);
@@ -963,7 +961,7 @@ footer nav a:hover {
   vertical-align: middle !important;
   text-align: center !important;
   font-family: 'DM Mono', monospace !important;
-  border-radius: 6px !important;
+  border-radius: 10px !important;
 }
 
 .fork-btn-inner:hover {

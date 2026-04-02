@@ -3,7 +3,7 @@
 .sticky-note-card {
   position: relative;
   background: #f5e6c8;
-  border-radius: 3px;
+  border-radius: 10px;
   box-shadow:
     3px 3px 10px rgba(0, 0, 0, 0.35),
     0 1px 0 rgba(255, 255, 255, 0.3) inset;
@@ -58,13 +58,13 @@
     rgba(0, 0, 0, 0.1) 50%,
     #e8d4a8 50%
   );
-  border-radius: 0 0 3px 0;
+  border-radius: 0 0 10px 0;
 }
 
 /* Image area */
 .sticky-note-img {
   overflow: hidden;
-  border-radius: 2px 2px 0 0;
+  border-radius: 10px 10px 0 0;
   height: 140px;
 }
 
@@ -131,7 +131,7 @@
       rgba(163, 120, 70, 0.07) 25px
     ),
     linear-gradient(135deg, #1a1210 0%, #120e08 100%);
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 2.5rem 2rem;
   box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
 }

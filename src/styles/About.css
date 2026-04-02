@@ -83,6 +83,7 @@
   border-left:   3px solid #6b4018;
   border-bottom: 3px solid #3d1e08;
   border-right:  3px solid #3d1e08;
+  border-radius: 10px;
   /* Pixel hard drop shadow — no blur */
   box-shadow:
     4px 4px 0 #0a0400,
@@ -120,6 +121,7 @@
   border-left:   2px solid #7a4a18;
   border-bottom: 2px solid #3a1a06;
   border-right:  2px solid #3a1a06;
+  border-radius: 8px;
   box-shadow: 2px 2px 0 #0a0400;
   display: block;
   text-shadow: 0 0 10px rgba(245,200,66,0.38), 1px 1px 0 #0a0400;
@@ -228,6 +230,7 @@
   border-left:   2px solid #c4a060;
   border-bottom: 2px solid #8a6820;
   border-right:  2px solid #8a6820;
+  border-radius: 10px;
   box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
   padding: 1rem 0.9rem 0.9rem;
 }
@@ -241,6 +244,7 @@
   border-left:   3px solid #8b6010;
   border-bottom: 3px solid #4a2e08;
   border-right:  3px solid #4a2e08;
+  border-radius: 10px;
   box-shadow: 3px 3px 0 #0a0400, inset 0 0 14px rgba(0,0,0,0.35);
   overflow: hidden;
   background: #1c0e05;
@@ -298,6 +302,7 @@
   margin-bottom: 0.65rem;
   background: rgba(0,0,0,0.08);
   border: 1px solid rgba(100,65,20,0.28);
+  border-radius: 6px;
 }
 
 .rpg-lv-label {
@@ -345,6 +350,7 @@
   border-left:   1px solid rgba(0,0,0,0.35);
   border-bottom: 1px solid rgba(255,255,255,0.1);
   border-right:  1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -579,6 +585,7 @@
   border-left:   2px solid #6b4018;
   border-bottom: 2px solid #3d1e08;
   border-right:  2px solid #3d1e08;
+  border-radius: 0 0 10px 10px;
   box-shadow: 3px 3px 0 #0a0400;
 }
 
@@ -591,6 +598,7 @@
   border-left:   2px solid #7a4a18;
   border-bottom: 2px solid #3a1a06;
   border-right:  2px solid #3a1a06;
+  border-radius: 8px;
   box-shadow: 2px 2px 0 #0a0400;
   padding: 0.32rem 0.65rem;
   cursor: pointer;
