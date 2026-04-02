@@ -2,24 +2,15 @@ import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import logo from '../assets/logo.png';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
-import { CgGitFork } from 'react-icons/cg';
-import { ImBlog } from 'react-icons/im';
-import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from 'react-icons/ai';
+import logo from '../Assets/logo.png';
+import { Link, useLocation } from 'react-router-dom';
 
-import { CgFileDocument } from 'react-icons/cg';
 import { LanguageChanger } from './LanguageChanger';
 
 export default function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const location = useLocation();
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -31,6 +22,9 @@ export default function NavBar() {
 
   window.addEventListener('scroll', scrollHandler);
 
+  const isActive = (path: string) =>
+    location.pathname === path ? 'ff6-nav-link ff6-nav-link--active' : 'ff6-nav-link';
+
   return (
     <Navbar
       expanded={expand}
@@ -39,102 +33,80 @@ export default function NavBar() {
       className={navColour ? 'sticky' : 'navbar'}
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
+        <Navbar.Brand href="/" className="d-flex align-items-center">
           <img src={logo} className="img-fluid logo" alt="brand" />
         </Navbar.Brand>
+
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(!expand);
-          }}
+          onClick={() => updateExpanded(!expand)}
         >
           <span></span>
           <span></span>
           <span></span>
         </Navbar.Toggle>
+
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto" defaultActiveKey="#home">
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/"
-                onClick={() => updateExpanded(false)}
-                style={{ textDecoration: 'none' }}
-              >
-                <AiOutlineHome style={{ marginBottom: '2px' }} /> Home
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-                style={{ textDecoration: 'none' }}
-              >
-                <AiOutlineUser style={{ marginBottom: '2px' }} /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-                style={{ textDecoration: 'none' }}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: '2px' }}
-                />
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-                style={{ textDecoration: 'none' }}
-              >
-                <CgFileDocument style={{ marginBottom: '2px' }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-            <div className="d-flex justify-content-center w-100 d-md-none">
-              <Nav.Item className="d-flex align-items-center mx-2">
-                <LanguageChanger />
-              </Nav.Item>
-
-              <Nav.Item className="fork-btn d-flex align-items-center mx-2">
-                <Button
-                  style={{ textDecoration: 'none' }}
-                  href="https://github.com/oscaroca/Portfolio"
-                  target="_blank"
-                  className="fork-btn-inner"
+          {/* FF6-style window frame wrapping the nav items */}
+          <div className="ff6-nav-window ms-auto">
+            <Nav defaultActiveKey="#home">
+              <Nav.Item>
+                <Nav.Link
+                  as={Link}
+                  to="/"
+                  onClick={() => updateExpanded(false)}
+                  className={isActive('/')}
                 >
-                  <CgGitFork style={{ fontSize: '1.2em' }} />{' '}
-                  <AiFillStar style={{ fontSize: '1.1em' }} />
-                </Button>
+                  Home
+                </Nav.Link>
               </Nav.Item>
-            </div>
 
-            <Nav.Item className="d-none d-md-flex align-items-center">
+              <Nav.Item>
+                <Nav.Link
+                  as={Link}
+                  to="/about"
+                  onClick={() => updateExpanded(false)}
+                  className={isActive('/about')}
+                >
+                  About
+                </Nav.Link>
+              </Nav.Item>
+
+              <Nav.Item>
+                <Nav.Link
+                  as={Link}
+                  to="/project"
+                  onClick={() => updateExpanded(false)}
+                  className={isActive('/project')}
+                >
+                  Projects
+                </Nav.Link>
+              </Nav.Item>
+
+              <Nav.Item>
+                <Nav.Link
+                  as={Link}
+                  to="/resume"
+                  onClick={() => updateExpanded(false)}
+                  className={isActive('/resume')}
+                >
+                  Resume
+                </Nav.Link>
+              </Nav.Item>
+
+              {/* Language — mobile */}
+              <div className="d-flex justify-content-center w-100 d-md-none ff6-nav-extras">
+                <Nav.Item className="d-flex align-items-center mx-2">
+                  <LanguageChanger />
+                </Nav.Item>
+              </div>
+            </Nav>
+
+            {/* Language — desktop */}
+            <div className="d-none d-md-flex align-items-center">
               <LanguageChanger />
-            </Nav.Item>
-
-            <Nav.Item className="fork-btn d-none d-md-flex align-items-center">
-              <Button
-                style={{ textDecoration: 'none' }}
-                href="https://github.com/oscaroca/Portfolio"
-                target="_blank"
-                className="fork-btn-inner"
-              >
-                <CgGitFork style={{ fontSize: '1.2em' }} />{' '}
-                <AiFillStar style={{ fontSize: '1.1em' }} />
-              </Button>
-            </Nav.Item>
-          </Nav>
+            </div>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

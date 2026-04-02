@@ -1,104 +1,122 @@
 /* ===========================================
-   Color Constants - Centralized Color Palette
+   Lo-Fi Study Room — Color Palette
    =========================================== */
 
 :root {
   /* ===== Base Color Palette ===== */
 
-  /* Primary Green */
-  --color-green-primary: #60ce65;
-  --color-green-dark: #187a1d;
-  --color-green-light: #4dd36e;
+  /* Amber / Lamp Glow */
+  --color-amber:        #f5c842;
+  --color-amber-dark:   #c4913a;
+  --color-amber-light:  #fad96a;
+  --color-amber-glow:   rgba(245, 200, 66, 0.18);
 
-  /* Background Colors */
-  --color-bg-primary: rgb(75, 75, 75);
-  --color-bg-secondary: rgba(36, 36, 36, 0.952);
-  --color-bg-dark: #0f0f0f;
-  --color-bg-navbar: rgba(58, 58, 58, 0.185);
-  --color-bg-dark-overlay: rgba(32, 32, 32, 0.267);
+  /* Rose / Blush */
+  --color-rose:         #e8a598;
+  --color-rose-dark:    #c47b6e;
+  --color-rose-light:   #f2c4bb;
 
-  /* Text Colors */
-  --color-text-white: white;
-  --color-text-light: rgb(250, 250, 250);
-  --color-text-accent: #88c09d;
+  /* Sage Green */
+  --color-sage:         #7ec8a0;
+  --color-sage-dark:    #4f9e74;
+  --color-sage-light:   #a8dbb8;
 
-  /* Dark Green (formerly purple) */
-  --color-green-darker: #1d5029;
-
-  /* Gray Colors */
-  --color-gray-light: #6b6b6b;
-  --color-gray-dark: #5a5a5a;
-
-  /* ===== Semantic Colors (using base colors) ===== */
-
-  /* Main/Primary */
-  --main-color: var(--color-green-primary);
-  --imp-text-color: var(--main-color); /* Backward compatibility */
-
-  /* Backgrounds */
-  --bg-primary: var(--color-bg-primary);
-  --bg-secondary: var(--color-bg-secondary);
-  --bg-preloader: var(--color-bg-dark);
-  --bg-navbar: var(--color-bg-navbar);
-  --bg-navbar-mobile: rgba(24, 26, 39, 1);
-  --bg-footer: var(--color-bg-dark);
-  --bg-white: rgba(255, 255, 255, 0.972);
+  /* Night Backgrounds */
+  --color-bg-night:     #12101e;
+  --color-bg-warm:      #1e150a;
+  --color-bg-card:      rgba(245, 200, 66, 0.06);
+  --color-bg-navbar:    rgba(18, 16, 30, 0.55);
+  --color-bg-overlay:   rgba(12, 10, 20, 0.45);
 
   /* Text */
-  --text-white: var(--color-text-white);
-  --text-whitesmoke: whitesmoke;
-  --text-light: var(--color-text-light);
+  --color-cream:        #f0e6d3;
+  --color-cream-dim:    #c8b89a;
+  --color-text-muted:   #8a7a65;
+
+  /* ===== Semantic Colors ===== */
+
+  /* Primary accent → amber */
+  --main-color:         var(--color-amber);
+  --imp-text-color:     var(--main-color);
+
+  /* Backgrounds */
+  --bg-primary:         var(--color-bg-night);
+  --bg-secondary:       var(--color-bg-warm);
+  --bg-preloader:       #0d0b15;
+  --bg-navbar:          var(--color-bg-navbar);
+  --bg-navbar-mobile:   rgba(18, 16, 30, 0.97);
+  --bg-footer:          #0d0b15;
+  --bg-white:           rgba(240, 230, 211, 0.96);
+
+  /* Text */
+  --text-white:         var(--color-cream);
+  --text-whitesmoke:    var(--color-cream-dim);
+  --text-light:         var(--color-cream);
 
   /* Scrollbar */
-  --scrollbar-track: var(--color-green-darker);
+  --scrollbar-track:    #1e150a;
 
   /* Footer */
-  --footer-text: var(--color-text-accent);
+  --footer-text:        var(--color-cream-dim);
 
-  /* Buttons & Interactive Elements */
-  --button-bg: var(--color-green-dark);
-  --button-bg-hover: var(--color-green-light);
-  --button-border: var(--color-green-dark);
-  --button-border-hover: var(--color-green-light);
+  /* Buttons & Interactive */
+  --button-bg:          var(--color-amber-dark);
+  --button-bg-hover:    var(--color-amber);
+  --button-border:      var(--color-amber-dark);
+  --button-border-hover:var(--color-amber);
 
   /* Icons */
-  --icon-color: var(--color-green-dark);
+  --icon-color:         var(--color-amber-dark);
 
-  /* Shadows & Effects */
-  --shadow-navbar: rgba(9, 5, 29, 0.171);
-  --shadow-green: rgba(60, 136, 53, 0.459);
-  --shadow-green-hover: rgba(72, 144, 78, 0.561);
+  /* Shadows */
+  --shadow-navbar:      rgba(0, 0, 0, 0.4);
+  --shadow-amber:       rgba(245, 200, 66, 0.28);
+  --shadow-amber-hover: rgba(245, 200, 66, 0.45);
 
   /* Transparent Backgrounds */
-  --bg-green-transparent: rgba(76, 206, 109, 0.37);
-  --bg-dark-transparent: var(--color-bg-dark-overlay);
+  --bg-amber-transparent:  rgba(245, 200, 66, 0.15);
+  --bg-dark-transparent:   var(--color-bg-overlay);
 
   /* Outlines */
-  --outline-green: rgba(140, 230, 137, 0.637);
-  --outline-green-hover: rgba(115, 230, 167, 0.883);
+  --outline-amber:      rgba(245, 200, 66, 0.4);
+  --outline-amber-hover:rgba(245, 200, 66, 0.75);
 
   /* Resume */
-  --resume-border: var(--color-green-primary);
-  --resume-title-bg: rgba(52, 121, 66, 0.36);
+  --resume-border:      var(--color-amber);
+  --resume-title-bg:    rgba(196, 145, 58, 0.25);
+
+  /* Section background */
+  --section-background-color: var(--color-bg-night);
 
   /* ===== Gradients ===== */
   --gradient-background: linear-gradient(
-    to left,
-    var(--bg-primary),
-    var(--bg-secondary)
+    135deg,
+    #12101e 0%,
+    #1e150a 60%,
+    #120f1a 100%
   );
   --gradient-section: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.582),
-    var(--bg-dark-transparent)
+    rgba(18, 10, 5, 0.7),
+    rgba(12, 10, 20, 0.45)
   );
   --gradient-image: linear-gradient(
     to bottom left,
-    rgba(17, 16, 16, 0.678),
-    rgba(12, 10, 22, 0.863)
+    rgba(18, 10, 5, 0.75),
+    rgba(12, 10, 20, 0.88)
   );
 
   /* ===== Legacy Support ===== */
-  --app-header-bg: #262725;
-  --app-link: #61dafb;
+  --app-header-bg:     #12101e;
+  --app-link:          var(--color-amber);
+
+  /* ===== Green aliases (mapped to amber for backward compat) ===== */
+  --color-green-primary:  var(--color-amber);
+  --color-green-dark:     var(--color-amber-dark);
+  --color-green-light:    var(--color-amber-light);
+  --shadow-green:         var(--shadow-amber);
+  --shadow-green-hover:   var(--shadow-amber-hover);
+  --outline-green:        var(--outline-amber);
+  --outline-green-hover:  var(--outline-amber-hover);
+  --bg-green-transparent: var(--bg-amber-transparent);
 }

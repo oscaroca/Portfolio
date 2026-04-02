@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -18,15 +18,11 @@ import Home from './pages/Home/Home';
 import About from './pages/About';
 import Projects from './pages/Projects/Projects';
 import Footer from './components/Footer';
-
-import { Particles, initParticlesEngine } from '@tsparticles/react';
-import type { Engine, ISourceOptions } from '@tsparticles/engine';
-import { loadAll } from '@tsparticles/all';
+import LofiBokeh from './components/LofiBokeh';
 
 import { TranslationsContextProvider } from './context/translationContext/TranslationContext';
-import particlesOptions from './particles.json';
 import { googleDriveService } from './services/googleDrive';
-import Resume from './pages/resume';
+import Resume from './pages/Resume';
 
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -41,32 +37,22 @@ const queryClient = new QueryClient({
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [particlesReady, setParticlesReady] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 600);
     return () => clearTimeout(timer);
   }, []);
 
-  // Initialize tsparticles engine
-  useEffect(() => {
-    initParticlesEngine(async (engine: Engine) => {
-      // loads ALL tsparticles packages (recommended for simplicity)
-      await loadAll(engine);
-    }).then(() => setParticlesReady(true));
-  }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <div
         style={{
-          color: 'var(--main-color)',
-          background: 'var(--section-background-color)',
+          color: 'var(--color-cream)',
+          background: 'var(--gradient-background)',
+          minHeight: '100vh',
         }}
       >
-        {particlesReady && (
-          <Particles id="tsparticles" options={particlesOptions as any} />
-        )}
+        <LofiBokeh />
 
         <TranslationsContextProvider>
           <Router>

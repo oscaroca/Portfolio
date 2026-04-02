@@ -80,10 +80,11 @@ export default function Projects() {
           <ContentLoader isLoading={isLoading} />
         ) : (
           <div
+            className="corkboard"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-              gap: '1rem',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(230px, 1fr))',
+              gap: '2rem',
             }}
           >
             {files.map((file) => (

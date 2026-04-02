@@ -1,0 +1,639 @@
+/* ============================================================
+   About — Tavern Pixel Art Style
+   ============================================================ */
+
+/* ── Stone wall section ── */
+.tavern-section {
+  position: relative;
+}
+
+/* Stone wall texture + torch glow overlay */
+.tavern-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  /* Brick mortar grid */
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px, transparent 36px,
+      rgba(0,0,0,0.22) 36px, rgba(0,0,0,0.22) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 54px,
+      rgba(0,0,0,0.16) 54px, rgba(0,0,0,0.16) 58px
+    );
+}
+
+/* Torch glow — top-left & top-right corners, flickering */
+.tavern-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 280px 380px at 2% 6%,  rgba(232,120,32,0.16) 0%, transparent 70%),
+    radial-gradient(ellipse 280px 380px at 98% 6%, rgba(232,120,32,0.16) 0%, transparent 70%);
+  animation: torchFlicker 2.8s ease-in-out infinite;
+}
+
+@keyframes torchFlicker {
+  0%,  100% { opacity: 1; }
+  10%        { opacity: 0.80; }
+  25%        { opacity: 0.95; }
+  40%        { opacity: 0.72; }
+  55%        { opacity: 1; }
+  70%        { opacity: 0.86; }
+  85%        { opacity: 0.94; }
+}
+
+/* Make sure all content sits above the stone texture */
+.tavern-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── RPG layout ── */
+.rpg-layout {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  margin-bottom: 2.6rem;
+}
+
+/* ============================================================
+   Tavern Board — wooden plank panel
+   ============================================================ */
+.tavern-board {
+  position: relative;
+  /* Horizontal wood plank grain */
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #1e0e04 0px,  #1e0e04 13px,
+      #160a02 13px, #160a02 15px,
+      #1e0e04 15px, #1e0e04 28px,
+      #190c03 28px, #190c03 30px
+    );
+  border-top:    3px solid #6b4018;
+  border-left:   3px solid #6b4018;
+  border-bottom: 3px solid #3d1e08;
+  border-right:  3px solid #3d1e08;
+  /* Pixel hard drop shadow — no blur */
+  box-shadow:
+    4px 4px 0 #0a0400,
+    inset 1px 1px 0 rgba(255,255,255,0.05),
+    inset -1px -1px 0 rgba(0,0,0,0.45);
+  padding: 1.3rem 1.4rem 1.5rem;
+}
+
+/* Nail decorations */
+.tavern-nail {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #ddb030, #8a5e10 58%, #4a2c06 100%);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.18);
+  z-index: 2;
+}
+.tavern-nail--tl { top: 7px;  left: 7px; }
+.tavern-nail--tr { top: 7px;  right: 7px; }
+.tavern-nail--bl { bottom: 7px; left: 7px; }
+.tavern-nail--br { bottom: 7px; right: 7px; }
+
+/* Board title — carved wooden sign look */
+.tavern-sign {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.56em;
+  color: #f5c842;
+  text-align: center;
+  letter-spacing: 0.12em;
+  margin: 0.2rem 0 1.2rem;
+  padding: 0.35rem 0.7rem;
+  background: #2d1608;
+  border-top:    2px solid #7a4a18;
+  border-left:   2px solid #7a4a18;
+  border-bottom: 2px solid #3a1a06;
+  border-right:  2px solid #3a1a06;
+  box-shadow: 2px 2px 0 #0a0400;
+  display: block;
+  text-shadow: 0 0 10px rgba(245,200,66,0.38), 1px 1px 0 #0a0400;
+}
+
+/* ============================================================
+   Stats Panel
+   ============================================================ */
+.rpg-stats-panel {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.rpg-category {
+  margin-bottom: 1.05rem;
+}
+
+.rpg-category-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45em;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.28rem;
+  border-bottom: 1px solid rgba(232,120,32,0.2);
+}
+.rpg-cat--torch     { color: #e87820; }
+.rpg-cat--parchment { color: #e8d4a0; }
+.rpg-cat--sage      { color: var(--color-sage); }
+
+.rpg-skill-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.rpg-skill-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.44em;
+  color: #c8a870;
+  width: 86px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rpg-skill-bar {
+  display: flex;
+  gap: 2px;
+  flex: 1;
+}
+
+/* Empty segment — dark wood recess */
+.rpg-skill-seg {
+  width: 13px;
+  height: 9px;
+  background: rgba(0,0,0,0.45);
+  border-top:  1px solid rgba(0,0,0,0.6);
+  border-left: 1px solid rgba(0,0,0,0.6);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-right:  1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+/* Filled segment — torch glow pop-in */
+.rpg-skill-seg--on {
+  opacity: 0;
+  animation: segPop 0.12s ease-out forwards;
+}
+
+@keyframes segPop {
+  from { opacity: 0; transform: scaleY(0.2); }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+
+.rpg-skill-level {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.4em;
+  color: #8a6030;
+  width: 34px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Character Panel + Parchment
+   ============================================================ */
+.rpg-char-panel {
+  flex: 0 0 235px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Aged parchment card inside the wood board */
+.tavern-parchment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.07) 0%, transparent 12%, transparent 88%, rgba(0,0,0,0.07) 100%),
+    #e2cc8e;
+  border-top:    2px solid #c4a060;
+  border-left:   2px solid #c4a060;
+  border-bottom: 2px solid #8a6820;
+  border-right:  2px solid #8a6820;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+  padding: 1rem 0.9rem 0.9rem;
+}
+
+/* Portrait frame — pixel border with float animation */
+.rpg-portrait-frame {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 0.85rem;
+  border-top:    3px solid #8b6010;
+  border-left:   3px solid #8b6010;
+  border-bottom: 3px solid #4a2e08;
+  border-right:  3px solid #4a2e08;
+  box-shadow: 3px 3px 0 #0a0400, inset 0 0 14px rgba(0,0,0,0.35);
+  overflow: hidden;
+  background: #1c0e05;
+  animation: charFloat 3s ease-in-out infinite;
+}
+
+@keyframes charFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-5px); }
+}
+
+.rpg-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.75) sepia(0.22);
+  transition: filter 0.3s;
+}
+.rpg-portrait-frame:hover .rpg-portrait-img {
+  filter: saturate(1) sepia(0);
+}
+
+/* Name — dark ink on parchment */
+.rpg-char-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65em;
+  color: #2a1400;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.25rem;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
+}
+
+.rpg-char-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #8a6020, transparent);
+  margin: 0.35rem 0;
+}
+
+.rpg-char-class {
+  font-family: 'Kalam', cursive;
+  font-size: 0.85em;
+  color: #5a3a10;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+/* Level row */
+.rpg-char-lv-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-bottom: 0.65rem;
+  background: rgba(0,0,0,0.08);
+  border: 1px solid rgba(100,65,20,0.28);
+}
+
+.rpg-lv-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.45em;
+  color: #5a3a10;
+}
+
+.rpg-lv-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.92em;
+  color: #2a1400;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.15);
+}
+
+.rpg-exp {
+  margin-left: auto;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.38em;
+  color: #7a5020;
+}
+
+/* HP / MP bars */
+.rpg-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  margin-bottom: 0.4rem;
+}
+
+.rpg-bar-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.44em;
+  color: #5a3a10;
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.rpg-bar-track {
+  flex: 1;
+  height: 9px;
+  background: rgba(0,0,0,0.2);
+  border-top:    1px solid rgba(0,0,0,0.35);
+  border-left:   1px solid rgba(0,0,0,0.35);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-right:  1px solid rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.rpg-bar-fill { height: 100%; }
+
+.rpg-bar-fill--hp {
+  width: 100%;
+  background: linear-gradient(to right, #3a9830, #68c038);
+  box-shadow: 0 0 5px rgba(80,180,50,0.5);
+  animation: barIn 1.3s ease-out;
+}
+
+.rpg-bar-fill--mp {
+  background: linear-gradient(to right, #7840c0, #a868e8);
+  box-shadow: 0 0 5px rgba(140,80,220,0.45);
+  animation: barIn 1.6s ease-out;
+}
+
+@keyframes barIn {
+  from { width: 0 !important; }
+}
+
+.rpg-bar-val {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.4em;
+  color: #7a5020;
+  width: 26px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .rpg-layout {
+    flex-direction: column-reverse;
+  }
+  .rpg-char-panel {
+    flex: unset;
+    width: 100%;
+  }
+  .rpg-portrait-frame {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* ============================================================
+   Scroll / Diary
+   ============================================================ */
+.tavern-scroll-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Wooden roller rod */
+.tavern-roller {
+  position: relative;
+  height: 22px;
+  background: linear-gradient(
+    180deg,
+    #4a2a08 0%,
+    #7a4a14 18%,
+    #c08030 42%,
+    #e0b050 50%,
+    #c08030 58%,
+    #7a4a14 82%,
+    #4a2a08 100%
+  );
+  /* Hard pixel shadow */
+  box-shadow: 0 3px 0 #0a0400, inset 0 1px 0 rgba(255,255,255,0.12);
+  z-index: 2;
+}
+
+/* Round knobs at roller ends */
+.tavern-roller-knob {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 32%, #a87030, #5a3010 55%, #2e1608 100%);
+  box-shadow: 2px 2px 0 #0a0400, inset 0 1px 0 rgba(255,255,255,0.1);
+  z-index: 3;
+}
+.tavern-roller-knob--l { left:  -10px; }
+.tavern-roller-knob--r { right: -10px; }
+
+/* Scroll content body */
+.tavern-scroll-body {
+  display: flex;
+  min-height: 260px;
+  position: relative;
+  /* Parchment roll shadow at top/bottom edges */
+  box-shadow:
+    inset 0  12px 20px rgba(0,0,0,0.18),
+    inset 0 -12px 20px rgba(0,0,0,0.18);
+}
+
+/* Page-turn animations on scroll body */
+.tavern-scroll--next {
+  animation: scrollNext 0.38s ease-in-out;
+}
+.tavern-scroll--prev {
+  animation: scrollPrev 0.38s ease-in-out;
+}
+
+@keyframes scrollNext {
+  0%   { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
+  40%  { opacity: 0.30; transform: perspective(1400px) rotateY(-2.5deg) translateX(8px); }
+  60%  { opacity: 0.30; transform: perspective(1400px) rotateY(2deg) translateX(-8px); }
+  100% { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
+}
+@keyframes scrollPrev {
+  0%   { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
+  40%  { opacity: 0.30; transform: perspective(1400px) rotateY(2.5deg) translateX(-8px); }
+  60%  { opacity: 0.30; transform: perspective(1400px) rotateY(-2deg) translateX(8px); }
+  100% { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
+}
+
+/* Parchment glint on turn */
+.tavern-scroll--next::before,
+.tavern-scroll--prev::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  background: linear-gradient(110deg, transparent 22%, rgba(240,218,150,0.32) 50%, transparent 78%);
+}
+.tavern-scroll--next::before { animation: glintR 0.38s ease-in-out; }
+.tavern-scroll--prev::before { animation: glintL 0.38s ease-in-out; }
+
+@keyframes glintR {
+  from { transform: translateX(-110%); opacity: 0.7; }
+  to   { transform: translateX(110%);  opacity: 0; }
+}
+@keyframes glintL {
+  from { transform: translateX(110%);  opacity: 0.7; }
+  to   { transform: translateX(-110%); opacity: 0; }
+}
+
+/* Parchment pages */
+.diary-page {
+  flex: 1;
+  padding: 1.8rem 2rem;
+  position: relative;
+  background-color: #edd9a0;
+  /* Ruled lines */
+  background-image: linear-gradient(
+    transparent calc(100% - 1px),
+    rgba(90,55,18,0.14) calc(100% - 1px)
+  );
+  background-size: 100% 30px;
+  background-position: 0 10px;
+}
+
+.diary-page--left  { box-shadow: inset -16px 0 28px rgba(0,0,0,0.14); }
+.diary-page--right { box-shadow: inset  16px 0 28px rgba(0,0,0,0.14); }
+
+/* Worn corner curl — bottom right */
+.diary-page--right::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(225deg, #cda870 50%, #ddc888 50%);
+  box-shadow: -2px -2px 3px rgba(0,0,0,0.18);
+}
+
+/* Center spine */
+.diary-spine {
+  width: 18px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    to right,
+    #3e1e06 0%,
+    #6a3e10 25%,
+    #b07828 50%,
+    #6a3e10 75%,
+    #3e1e06 100%
+  );
+  box-shadow: -4px 0 10px rgba(0,0,0,0.3), 4px 0 10px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+/* Diary text */
+.diary-heading {
+  font-family: 'Kalam', cursive;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #2e1600;
+  margin-bottom: 0.12rem;
+  line-height: 1.3;
+}
+
+.diary-date {
+  font-family: 'Kalam', cursive;
+  font-size: 0.74em;
+  color: #7a4e20;
+  padding-bottom: 0.38rem;
+  margin-bottom: 0.65rem;
+  border-bottom: 1px solid rgba(90,55,18,0.24);
+}
+
+.diary-text {
+  font-family: 'Kalam', cursive;
+  font-size: 0.88em;
+  color: #261200;
+  line-height: 1.85;
+}
+.diary-text p { margin: 0 0 0.6rem; }
+
+/* Controls */
+.diary-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 0.5rem 1rem;
+  /* Dark wood base under the scroll */
+  background:
+    repeating-linear-gradient(
+      180deg,
+      #1e0e04 0px, #1e0e04 6px,
+      #160a02 6px, #160a02 8px
+    );
+  border-top:    2px solid #3d1e08;
+  border-left:   2px solid #6b4018;
+  border-bottom: 2px solid #3d1e08;
+  border-right:  2px solid #3d1e08;
+  box-shadow: 3px 3px 0 #0a0400;
+}
+
+.diary-btn {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.58em;
+  background: #2d1608;
+  color: #c8a050;
+  border-top:    2px solid #7a4a18;
+  border-left:   2px solid #7a4a18;
+  border-bottom: 2px solid #3a1a06;
+  border-right:  2px solid #3a1a06;
+  box-shadow: 2px 2px 0 #0a0400;
+  padding: 0.32rem 0.65rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.1s;
+}
+
+.diary-btn:hover:not(:disabled) {
+  background: #3d1e08;
+  color: #f0d060;
+}
+
+.diary-btn:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 #0a0400;
+}
+
+.diary-btn:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+.diary-page-num {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.5em;
+  color: #c8a050;
+  letter-spacing: 0.1em;
+  user-select: none;
+  text-shadow: 1px 1px 0 #0a0400;
+}
+
+/* ── Mobile scroll ── */
+@media (max-width: 640px) {
+  .tavern-scroll-body {
+    flex-direction: column;
+  }
+  .diary-spine {
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(to bottom, #3e1e06 0%, #b07828 50%, #3e1e06 100%);
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.3), 0 3px 8px rgba(0,0,0,0.3);
+  }
+  .diary-page--right::after { display: none; }
+  .diary-page { padding: 1.3rem 1.4rem; }
+  .tavern-roller-knob { display: none; }
+}

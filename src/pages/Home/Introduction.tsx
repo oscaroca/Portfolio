@@ -12,16 +12,41 @@ export default function Introduction() {
       <Container>
         <Row>
           <Col md={8} className="home-about-description">
-            <h1 style={{ fontSize: '2.6em' }}>
+            <h1
+              style={{
+                fontSize: '1.6em',
+                fontFamily: "'Press Start 2P', monospace",
+                lineHeight: 1.7,
+                color: 'var(--color-cream)',
+              }}
+            >
               {t('home.intro.title1')}{' '}
-              <span className="mainGreen">{t('home.intro.title2')}</span>{' '}
+              <span style={{ color: 'var(--color-amber)' }}>
+                {t('home.intro.title2')}
+              </span>{' '}
               {t('home.intro.title3')}
             </h1>
-            {homeIntroBody()}
+            <div className="lofi-journal-card" style={{ marginTop: '1.5rem' }}>
+              {homeIntroBody()}
+            </div>
           </Col>
           <Col md={4} className="myAvtar">
-            <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+            <Tilt
+              tiltMaxAngleX={8}
+              tiltMaxAngleY={8}
+              glareEnable={true}
+              glareMaxOpacity={0.08}
+              glareColor="rgba(245,200,66,0.6)"
+            >
+              <img
+                src={myImg}
+                className="img-fluid"
+                alt="avatar"
+                style={{
+                  borderRadius: '8px',
+                  filter: 'drop-shadow(0 0 24px rgba(245,200,66,0.18))',
+                }}
+              />
             </Tilt>
           </Col>
         </Row>
@@ -38,19 +63,25 @@ const homeIntroBody = () => {
       {t('home.intro.body1')}
       <br />
       <br />
-      {t('home.intro.stackLead')}
+      <span style={{ color: 'var(--color-cream-dim)' }}>
+        {t('home.intro.stackLead')}
+      </span>
       <i>
-        <b className="mainGreen"> {t('home.intro.stack')} </b>
+        <b style={{ color: 'var(--color-amber)' }}> {t('home.intro.stack')} </b>
       </i>
       <br />
       <br />
-      {t('home.intro.interestsLead')}
+      <span style={{ color: 'var(--color-cream-dim)' }}>
+        {t('home.intro.interestsLead')}
+      </span>
       <i>
-        <b className="mainGreen"> {t('home.intro.interests')} </b>
+        <b style={{ color: 'var(--color-rose)' }}> {t('home.intro.interests')} </b>
       </i>
       <br />
       <br />
-      {t('home.intro.toolsLead')}
+      <span style={{ color: 'var(--color-cream-dim)' }}>
+        {t('home.intro.toolsLead')}
+      </span>
     </p>
   );
 };

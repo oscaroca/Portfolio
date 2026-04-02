@@ -1,0 +1,43 @@
+.lofi-bokeh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Soft drifting orbs */
+.lofi-orb {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbDrift linear infinite;
+  filter: blur(60px);
+  will-change: transform;
+}
+
+@keyframes orbDrift {
+  0%   { transform: translate(-50%, -50%) translate(0px, 0px) scale(1); }
+  25%  { transform: translate(-50%, -50%) translate(18px, -12px) scale(1.04); }
+  50%  { transform: translate(-50%, -50%) translate(-10px, 20px) scale(0.97); }
+  75%  { transform: translate(-50%, -50%) translate(-20px, -8px) scale(1.02); }
+  100% { transform: translate(-50%, -50%) translate(0px, 0px) scale(1); }
+}
+
+/* Tiny firefly dots */
+.lofi-firefly {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(245, 200, 66, 0.7);
+  box-shadow: 0 0 6px 2px rgba(245, 200, 66, 0.4);
+  animation: fireflyPulse ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes fireflyPulse {
+  0%   { opacity: 0;    transform: translate(0, 0); }
+  20%  { opacity: 0.8;  transform: translate(4px, -6px); }
+  50%  { opacity: 0.3;  transform: translate(-5px, 8px); }
+  80%  { opacity: 0.9;  transform: translate(6px, 3px); }
+  100% { opacity: 0;    transform: translate(0, 0); }
+}

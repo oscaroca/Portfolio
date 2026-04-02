@@ -1,15 +1,12 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import homeLogo from '../../assets/home-main.png';
-// import Particle from '../../components/Particle';
+import homeLogo from '../../Assets/home-main.png';
 
 import Introduction from './Introduction';
 import '../../style.css';
 
 import {
   AiFillGithub,
-  AiOutlineTwitter,
-  AiFillInstagram,
 } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa';
 import { useTranslation } from '../../hooks/useTranslation';
@@ -18,7 +15,7 @@ import TypewriterStack from '../../components/TypewriterStack';
 export default function Home() {
   const { t } = useTranslation();
   return (
-    <section>
+    <section style={{ position: 'relative', zIndex: 1 }}>
       <Container
         fluid
         style={{
@@ -31,8 +28,8 @@ export default function Home() {
       >
         <Container
           style={{
-            padding: ' 9rem 0 2rem !important',
-            color: 'whitesmoke',
+            padding: '9rem 0 2rem',
+            color: 'var(--color-cream)',
             textAlign: 'left',
           }}
         >
@@ -63,11 +60,17 @@ export default function Home() {
             </Col>
 
             <Col md={5} style={{ paddingBottom: 20 }}>
-              <img src={homeLogo} alt="home pic" className="img-fluid" />
+              <img
+                src={homeLogo}
+                alt="home pic"
+                className="img-fluid"
+                style={{ filter: 'drop-shadow(0 0 30px rgba(245,200,66,0.2))' }}
+              />
             </Col>
           </Row>
         </Container>
       </Container>
+
       <Introduction />
 
       <Container>
@@ -96,14 +99,15 @@ export default function Home() {
                 </a>
               </li>
             </ul>
-            <p>
+            <p style={{ color: 'var(--color-cream-dim)', fontFamily: "'DM Mono', monospace" }}>
               {t('home.social.connect1')}
-              <span className="mainGreen">
-                {
-                  <a href="mailto:contact@oscaroca.com" className="mainGreen">
-                    {t('home.social.connect2')}
-                  </a>
-                }
+              <span style={{ color: 'var(--color-amber)' }}>
+                <a
+                  href="mailto:contact@oscaroca.com"
+                  style={{ color: 'var(--color-amber)', textDecoration: 'none' }}
+                >
+                  {t('home.social.connect2')}
+                </a>
               </span>
               {t('home.social.connect3')}
             </p>
