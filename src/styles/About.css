@@ -145,9 +145,9 @@
   padding-bottom: 0.28rem;
   border-bottom: 1px solid rgba(232,120,32,0.2);
 }
-.rpg-cat--torch     { color: #e87820; }
-.rpg-cat--parchment { color: #e8d4a0; }
-.rpg-cat--sage      { color: var(--color-sage); }
+.rpg-cat--torch     { color: #9FDC7F; }
+.rpg-cat--parchment { color: #CCD3F0; }
+.rpg-cat--sage      { color: #8DDEFC; }
 
 .rpg-skill-row {
   display: flex;

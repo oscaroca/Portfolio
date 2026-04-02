@@ -79,9 +79,9 @@ const SPREADS: DiarySpread[] = [
 // ─── Skill Bar ────────────────────────────────────────────────────────────────
 
 const SEG_COLOR: Record<string, string> = {
-  torch:     '#e87820',
-  parchment: '#e8d4a0',
-  sage:      'var(--color-sage)',
+  torch:     '#9FDC7F',
+  parchment: '#CCD3F0',
+  sage:      '#8DDEFC',
 };
 
 function SkillBar({ name, level, color }: { name: string; level: number; color: string }) {

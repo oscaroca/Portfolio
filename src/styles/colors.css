@@ -1,122 +1,98 @@
 /* ===========================================
-   Lo-Fi Study Room — Color Palette
+   Forest Night Palette
    =========================================== */
 
 :root {
-  /* ===== Base Color Palette ===== */
+  /* ===== Base Colors ===== */
 
-  /* Amber / Lamp Glow */
-  --color-amber:        #f5c842;
-  --color-amber-dark:   #c4913a;
-  --color-amber-light:  #fad96a;
-  --color-amber-glow:   rgba(245, 200, 66, 0.18);
+  /* Leaf Green (primary accent) */
+  --color-amber:         #9FDC7F;
+  --color-amber-dark:    #4C9057;
+  --color-amber-light:   #88BC95;
+  --color-amber-glow:    rgba(159, 220, 127, 0.14);
 
-  /* Rose / Blush */
-  --color-rose:         #e8a598;
-  --color-rose-dark:    #c47b6e;
-  --color-rose-light:   #f2c4bb;
+  /* Periwinkle (text / soft accent) */
+  --color-rose:          #CCD3F0;
+  --color-rose-dark:     #8a94c4;
+  --color-rose-light:    #dde2f5;
 
-  /* Sage Green */
-  --color-sage:         #7ec8a0;
-  --color-sage-dark:    #4f9e74;
-  --color-sage-light:   #a8dbb8;
+  /* Powder Blue (tertiary accent) */
+  --color-sage:          #8DDEFC;
+  --color-sage-dark:     #5ab0d4;
+  --color-sage-light:    #b8ecff;
 
-  /* Night Backgrounds */
-  --color-bg-night:     #12101e;
-  --color-bg-warm:      #1e150a;
-  --color-bg-card:      rgba(245, 200, 66, 0.06);
-  --color-bg-navbar:    rgba(18, 16, 30, 0.55);
-  --color-bg-overlay:   rgba(12, 10, 20, 0.45);
+  /* Warm Tan */
+  --color-warm-tan:      #8D7E61;
 
-  /* Text */
-  --color-cream:        #f0e6d3;
-  --color-cream-dim:    #c8b89a;
-  --color-text-muted:   #8a7a65;
+  /* ===== Backgrounds (solid — no gradients) ===== */
+  --color-bg-night:      #0d1610;
+  --color-bg-warm:       #111a0f;
+  --color-bg-card:       rgba(76, 144, 87, 0.06);
+  --color-bg-navbar:     rgba(10, 18, 12, 0.72);
+  --color-bg-overlay:    rgba(6, 12, 8, 0.5);
 
-  /* ===== Semantic Colors ===== */
+  /* ===== Text ===== */
+  --color-cream:         #CCD3F0;
+  --color-cream-dim:     #88BC95;
+  --color-text-muted:    #8D7E61;
 
-  /* Primary accent → amber */
-  --main-color:         var(--color-amber);
-  --imp-text-color:     var(--main-color);
+  /* ===== Semantic ===== */
+  --main-color:          var(--color-amber);
+  --imp-text-color:      var(--main-color);
 
-  /* Backgrounds */
-  --bg-primary:         var(--color-bg-night);
-  --bg-secondary:       var(--color-bg-warm);
-  --bg-preloader:       #0d0b15;
-  --bg-navbar:          var(--color-bg-navbar);
-  --bg-navbar-mobile:   rgba(18, 16, 30, 0.97);
-  --bg-footer:          #0d0b15;
-  --bg-white:           rgba(240, 230, 211, 0.96);
+  --bg-primary:          var(--color-bg-night);
+  --bg-secondary:        var(--color-bg-warm);
+  --bg-preloader:        #060d08;
+  --bg-navbar:           var(--color-bg-navbar);
+  --bg-navbar-mobile:    rgba(8, 16, 10, 0.97);
+  --bg-footer:           #060d08;
+  --bg-white:            rgba(204, 211, 240, 0.95);
 
-  /* Text */
-  --text-white:         var(--color-cream);
-  --text-whitesmoke:    var(--color-cream-dim);
-  --text-light:         var(--color-cream);
+  --text-white:          var(--color-cream);
+  --text-whitesmoke:     var(--color-cream-dim);
+  --text-light:          var(--color-cream);
 
-  /* Scrollbar */
-  --scrollbar-track:    #1e150a;
+  --scrollbar-track:     #0d1610;
 
-  /* Footer */
-  --footer-text:        var(--color-cream-dim);
+  --footer-text:         var(--color-cream-dim);
 
-  /* Buttons & Interactive */
-  --button-bg:          var(--color-amber-dark);
-  --button-bg-hover:    var(--color-amber);
-  --button-border:      var(--color-amber-dark);
-  --button-border-hover:var(--color-amber);
+  --button-bg:           var(--color-amber-dark);
+  --button-bg-hover:     var(--color-amber);
+  --button-border:       var(--color-amber-dark);
+  --button-border-hover: var(--color-amber);
 
-  /* Icons */
-  --icon-color:         var(--color-amber-dark);
+  --icon-color:          var(--color-amber-dark);
 
-  /* Shadows */
-  --shadow-navbar:      rgba(0, 0, 0, 0.4);
-  --shadow-amber:       rgba(245, 200, 66, 0.28);
-  --shadow-amber-hover: rgba(245, 200, 66, 0.45);
+  --shadow-navbar:       rgba(0, 0, 0, 0.45);
+  --shadow-amber:        rgba(76, 144, 87, 0.22);
+  --shadow-amber-hover:  rgba(76, 144, 87, 0.38);
 
-  /* Transparent Backgrounds */
-  --bg-amber-transparent:  rgba(245, 200, 66, 0.15);
+  --bg-amber-transparent:  rgba(159, 220, 127, 0.1);
   --bg-dark-transparent:   var(--color-bg-overlay);
 
-  /* Outlines */
-  --outline-amber:      rgba(245, 200, 66, 0.4);
-  --outline-amber-hover:rgba(245, 200, 66, 0.75);
+  --outline-amber:       rgba(159, 220, 127, 0.32);
+  --outline-amber-hover: rgba(159, 220, 127, 0.6);
 
-  /* Resume */
-  --resume-border:      var(--color-amber);
-  --resume-title-bg:    rgba(196, 145, 58, 0.25);
+  --resume-border:       var(--color-amber);
+  --resume-title-bg:     rgba(76, 144, 87, 0.2);
 
-  /* Section background */
   --section-background-color: var(--color-bg-night);
 
-  /* ===== Gradients ===== */
-  --gradient-background: linear-gradient(
-    135deg,
-    #12101e 0%,
-    #1e150a 60%,
-    #120f1a 100%
-  );
-  --gradient-section: linear-gradient(
-    to bottom left,
-    rgba(18, 10, 5, 0.7),
-    rgba(12, 10, 20, 0.45)
-  );
-  --gradient-image: linear-gradient(
-    to bottom left,
-    rgba(18, 10, 5, 0.75),
-    rgba(12, 10, 20, 0.88)
-  );
+  /* ===== No gradient backgrounds ===== */
+  --gradient-background: #0d1610;
+  --gradient-section:    transparent;
+  --gradient-image:      rgba(6, 12, 8, 0.72);
 
-  /* ===== Legacy Support ===== */
-  --app-header-bg:     #12101e;
-  --app-link:          var(--color-amber);
-
-  /* ===== Green aliases (mapped to amber for backward compat) ===== */
-  --color-green-primary:  var(--color-amber);
-  --color-green-dark:     var(--color-amber-dark);
-  --color-green-light:    var(--color-amber-light);
-  --shadow-green:         var(--shadow-amber);
-  --shadow-green-hover:   var(--shadow-amber-hover);
-  --outline-green:        var(--outline-amber);
-  --outline-green-hover:  var(--outline-amber-hover);
-  --bg-green-transparent: var(--bg-amber-transparent);
+  /* Legacy / backward compat */
+  --app-header-bg:            #0d1610;
+  --app-link:                 var(--color-amber);
+  --color-green-primary:      var(--color-amber);
+  --color-green-dark:         var(--color-amber-dark);
+  --color-green-light:        var(--color-amber-light);
+  --shadow-green:             var(--shadow-amber);
+  --shadow-green-hover:       var(--shadow-amber-hover);
+  --outline-green:            var(--outline-amber);
+  --outline-green-hover:      var(--outline-amber-hover);
+  --bg-green-transparent:     var(--bg-amber-transparent);
+  --color-bg-dark-overlay:    var(--color-bg-overlay);
 }

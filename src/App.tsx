@@ -48,7 +48,7 @@ export default function App() {
       <div
         style={{
           color: 'var(--color-cream)',
-          background: 'var(--gradient-background)',
+          background: '#0d1610',
           minHeight: '100vh',
         }}
       >
