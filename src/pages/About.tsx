@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import myImg from '../Assets/avatar.png';
+import aboutBg from '../Assets/about-bg.png';
 import Tilt from 'react-parallax-tilt';
 import '../styles/About.css';
 
@@ -165,6 +166,21 @@ export default function About() {
   };
 
   return (
+    <>
+    {/* Page-scoped background — unmounts when leaving About */}
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 0,
+        backgroundImage: `url(${aboutBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+        opacity: 0.18,
+        pointerEvents: 'none',
+      }}
+    />
     <section className="about-section tavern-section" style={{ position: 'relative', zIndex: 1 }}>
       <Container fluid style={{ paddingBottom: '80px', paddingTop: '30px' }}>
         <Container>
@@ -273,5 +289,6 @@ export default function About() {
         </Container>
       </Container>
     </section>
+    </>
   );
 }

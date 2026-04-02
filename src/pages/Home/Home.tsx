@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import homeLogo from '../../Assets/home-main.png';
+import PixelBg from '../../components/PixelBg';
 
 import Introduction from './Introduction';
 import '../../style.css';
@@ -15,6 +16,8 @@ import TypewriterStack from '../../components/TypewriterStack';
 export default function Home() {
   const { t } = useTranslation();
   return (
+    <>
+    <PixelBg />
     <section style={{ position: 'relative', zIndex: 1 }}>
       <Container
         fluid
@@ -115,5 +118,6 @@ export default function Home() {
         </Row>
       </Container>
     </section>
+    </>
   );
 }

@@ -1,0 +1,21 @@
+import React from 'react';
+import waterfallGif from '../Assets/waterfall-bg.gif';
+
+export default function PixelBg() {
+  return (
+    <div
+      aria-hidden="true"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 0,
+        backgroundImage: `url(${waterfallGif})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center bottom',
+        imageRendering: 'pixelated',
+        opacity: 0.16,
+        pointerEvents: 'none',
+      }}
+    />
+  );
+}
