@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Oscaroca</title>
     <!-- Vite uses relative paths or imports in JS/TS -->
+    <!-- Restore path after GitHub Pages 404 redirect -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function (s) {
+            return s.replace(/~and~/g, '&');
+          });
+          window.history.replaceState(
+            null,
+            null,
+            decoded.shift() + (decoded.length ? '?' + decoded.join('&') : '') + l.hash,
+          );
+        }
+      })(window.location);
+    </script>
     <script type="module" crossorigin src="/assets/index-BJnsX3wo.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-hhYwCu5Q.css">
   </head>
