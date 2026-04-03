@@ -26,7 +26,7 @@ import Resume from './pages/Resume';
 import { JPNLearning } from 'jpn-learn';
 import 'jpn-learn/style.css';
 
-// Create a client for React Query
+// Create a client for React Query 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
