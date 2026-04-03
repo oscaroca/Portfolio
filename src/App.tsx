@@ -23,7 +23,8 @@ import LofiBokeh from './components/LofiBokeh';
 import { TranslationsContextProvider } from './context/translationContext/TranslationContext';
 import { googleDriveService } from './services/googleDrive';
 import Resume from './pages/Resume';
-import JPNLearning from './pages/JPNLearning/JPNLearning';
+import { JPNLearning } from 'jpn-learn';
+import 'jpn-learn/style.css';
 
 // Create a client for React Query
 const queryClient = new QueryClient({

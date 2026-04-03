@@ -94,7 +94,7 @@ export default function NavBar() {
                 </Nav.Link>
               </Nav.Item>
 
-              <Nav.Item>
+              {/* <Nav.Item>
                 <Nav.Link
                   as={Link}
                   to="/JPNLearning"
@@ -103,7 +103,7 @@ export default function NavBar() {
                 >
                   日本語
                 </Nav.Link>
-              </Nav.Item>
+              </Nav.Item> */}
 
               {/* Language — mobile */}
               <div className="d-flex justify-content-center w-100 d-md-none ff6-nav-extras">
