@@ -4,14 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Oscaroca</title>
-    <!-- Vite uses relative paths or imports in JS/TS -->
-    <script type="module" crossorigin src="/assets/index-BJnsX3wo.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-hhYwCu5Q.css">
+    <script>
+      // GitHub Pages SPA redirect — encodes the current path into a query param
+      // so index.html can restore it before React Router initialises.
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          '/?/' +
+          l.pathname.slice(1).replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash,
+      );
+    </script>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-
-    <!-- Vite entry point -->
-  </body>
+  <body></body>
 </html>
