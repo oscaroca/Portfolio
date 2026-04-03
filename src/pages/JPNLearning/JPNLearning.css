@@ -1,0 +1,884 @@
+/* ================================================
+   JPNLearning — Forest Night WaniKani-inspired app
+   ================================================ */
+
+/* ---------- Page Shell ---------- */
+.jpn-page {
+  min-height: 100vh;
+  background: var(--color-bg-night);
+  color: var(--color-cream);
+  padding-bottom: 4rem;
+  padding-top:4rem;
+}
+
+.jpn-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- Back button ---------- */
+.jpn-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid rgba(159, 220, 127, 0.3);
+  color: var(--color-amber);
+  padding: 0.45rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.2s, border-color 0.2s;
+  margin-bottom: 1.5rem;
+}
+.jpn-back-btn:hover {
+  background: rgba(159, 220, 127, 0.08);
+  border-color: var(--color-amber);
+}
+
+/* ---------- Hero ---------- */
+.jpn-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+}
+
+.jpn-hero-kanji {
+  font-size: 4.5rem;
+  line-height: 1;
+  color: var(--color-amber);
+  text-shadow: 0 0 24px rgba(159, 220, 127, 0.35);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.jpn-hero-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-cream);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.jpn-hero-subtitle {
+  font-size: 1rem;
+  color: var(--color-cream-dim);
+  margin: 0;
+}
+
+/* ---------- Stats bar ---------- */
+.jpn-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.jpn-stat-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(159, 220, 127, 0.12);
+  border-radius: 10px;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.jpn-stat-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-amber);
+  display: block;
+}
+
+.jpn-stat-label {
+  font-size: 0.72rem;
+  color: var(--color-cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 0.2rem;
+}
+
+/* ---------- SRS Breakdown ---------- */
+.jpn-srs-breakdown {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(159, 220, 127, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.jpn-srs-breakdown h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-cream-dim);
+  margin: 0 0 1rem;
+}
+
+.jpn-srs-bars {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.jpn-srs-bar-item {
+  flex: 1;
+  min-width: 60px;
+  text-align: center;
+}
+
+.jpn-srs-bar-fill {
+  height: 6px;
+  border-radius: 3px;
+  margin-bottom: 0.4rem;
+  transition: width 0.4s;
+}
+
+.jpn-srs-bar-count {
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: block;
+}
+
+.jpn-srs-bar-name {
+  font-size: 0.68rem;
+  color: var(--color-cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- Action Buttons ---------- */
+.jpn-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.jpn-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+}
+
+.jpn-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.jpn-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+.jpn-btn-primary {
+  background: var(--color-amber-dark);
+  color: var(--color-bg-night);
+  box-shadow: 0 4px 16px rgba(76, 144, 87, 0.3);
+}
+.jpn-btn-primary:not(:disabled):hover {
+  background: var(--color-amber);
+  box-shadow: 0 6px 20px rgba(76, 144, 87, 0.45);
+}
+
+.jpn-btn-secondary {
+  background: rgba(141, 222, 252, 0.12);
+  color: var(--color-sage);
+  border: 1px solid rgba(141, 222, 252, 0.3);
+}
+.jpn-btn-secondary:not(:disabled):hover {
+  background: rgba(141, 222, 252, 0.2);
+  border-color: var(--color-sage);
+}
+
+.jpn-btn-outline {
+  background: transparent;
+  color: var(--color-cream);
+  border: 1px solid rgba(204, 211, 240, 0.25);
+}
+.jpn-btn-outline:not(:disabled):hover {
+  background: rgba(204, 211, 240, 0.07);
+  border-color: rgba(204, 211, 240, 0.5);
+}
+
+.jpn-btn-danger {
+  background: rgba(220, 80, 80, 0.15);
+  color: #f88;
+  border: 1px solid rgba(220, 80, 80, 0.3);
+}
+.jpn-btn-danger:not(:disabled):hover {
+  background: rgba(220, 80, 80, 0.25);
+}
+
+.jpn-btn-sm {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+/* ---------- Badge --------- */
+.jpn-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* SRS badge variants */
+.srs-badge-new         { background: rgba(85,85,85,0.6);          color: #aaa; }
+.srs-badge-apprentice  { background: rgba(159,220,127,0.2);        color: #9FDC7F; }
+.srs-badge-guru        { background: rgba(141,222,252,0.2);        color: #8DDEFC; }
+.srs-badge-master      { background: rgba(204,211,240,0.15);       color: #CCD3F0; }
+.srs-badge-enlightened { background: rgba(76,144,87,0.25);         color: #4C9057; }
+.srs-badge-burned      { background: rgba(141,126,97,0.25);        color: #8D7E61; }
+
+/* ---------- Selector view ---------- */
+.jpn-selector-header {
+  text-align: center;
+  padding: 2rem 0 1.5rem;
+}
+
+.jpn-selector-header h2 {
+  font-size: 1.8rem;
+  color: var(--color-cream);
+  margin-bottom: 0.3rem;
+}
+
+.jpn-selector-header p {
+  color: var(--color-cream-dim);
+  font-size: 0.9rem;
+}
+
+.jpn-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.jpn-selector-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(159, 220, 127, 0.12);
+  border-radius: 12px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.jpn-selector-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(159, 220, 127, 0.25);
+  transform: translateY(-1px);
+}
+
+.jpn-selector-card.active {
+  border-color: var(--color-amber);
+  background: rgba(159, 220, 127, 0.07);
+}
+
+.jpn-selector-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.jpn-selector-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-cream);
+}
+
+.jpn-selector-card-count {
+  font-size: 0.75rem;
+  color: var(--color-cream-dim);
+}
+
+.jpn-selector-previews {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.jpn-preview-char {
+  font-size: 1.5rem;
+  color: var(--color-amber);
+  line-height: 1;
+}
+
+/* Toggle switch */
+.jpn-toggle {
+  position: relative;
+  width: 38px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.jpn-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.jpn-toggle-slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.12);
+  border-radius: 22px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.jpn-toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 3px;
+  top: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.jpn-toggle input:checked + .jpn-toggle-slider {
+  background: var(--color-amber-dark);
+}
+.jpn-toggle input:checked + .jpn-toggle-slider::before {
+  transform: translateX(16px);
+}
+
+.jpn-selector-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Progress bar ---------- */
+.jpn-progress-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.jpn-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--color-cream-dim);
+  margin-bottom: 0.4rem;
+}
+
+.jpn-progress-track {
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.jpn-progress-fill {
+  height: 100%;
+  background: var(--color-amber-dark);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+/* ---------- Lesson view ---------- */
+.jpn-lesson-header {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.jpn-lesson-phase {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-sage);
+  margin-bottom: 0.5rem;
+}
+
+.jpn-lesson-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(159, 220, 127, 0.15);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.jpn-kana-display {
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--color-amber);
+  display: block;
+  margin-bottom: 1rem;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', sans-serif;
+}
+
+.jpn-kana-display-sm {
+  font-size: 5rem;
+}
+
+.jpn-romaji-display {
+  font-size: 1.6rem;
+  color: var(--color-cream);
+  margin-bottom: 0.5rem;
+}
+
+.jpn-type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.jpn-type-hiragana {
+  background: rgba(159, 220, 127, 0.15);
+  color: var(--color-amber);
+  border: 1px solid rgba(159, 220, 127, 0.3);
+}
+
+.jpn-type-katakana {
+  background: rgba(141, 222, 252, 0.15);
+  color: var(--color-sage);
+  border: 1px solid rgba(141, 222, 252, 0.3);
+}
+
+.jpn-lesson-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Lesson queue dots */
+.jpn-lesson-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.jpn-lesson-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: background 0.2s;
+}
+
+.jpn-lesson-dot.seen   { background: rgba(159, 220, 127, 0.5); }
+.jpn-lesson-dot.current { background: var(--color-amber); }
+
+/* ---------- Review view ---------- */
+.jpn-review-header {
+  padding: 1.5rem 0 1rem;
+}
+
+.jpn-review-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.jpn-streak {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--color-amber);
+  font-weight: 600;
+}
+
+.jpn-review-card {
+  border-radius: 16px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  border: 1px solid transparent;
+  padding: 2rem;
+}
+
+.jpn-review-card.feedback-correct {
+  animation: flashCorrect 0.5s ease-out;
+}
+
+.jpn-review-card.feedback-incorrect {
+  animation: shakeIncorrect 0.5s ease-out;
+}
+
+@keyframes flashCorrect {
+  0%   { box-shadow: 0 0 0 0 rgba(159,220,127,0); }
+  30%  { box-shadow: 0 0 32px 8px rgba(159,220,127,0.5); }
+  100% { box-shadow: 0 0 0 0 rgba(159,220,127,0); }
+}
+
+@keyframes shakeIncorrect {
+  0%   { transform: translateX(0); }
+  15%  { transform: translateX(-8px); }
+  30%  { transform: translateX(8px); }
+  45%  { transform: translateX(-6px); }
+  60%  { transform: translateX(6px); }
+  75%  { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+/* Input area */
+.jpn-input-wrap {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+}
+
+.jpn-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(159, 220, 127, 0.2);
+  border-radius: 8px;
+  padding: 0.8rem 1.1rem;
+  font-size: 1.1rem;
+  color: var(--color-cream);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.jpn-input::placeholder {
+  color: rgba(204, 211, 240, 0.3);
+}
+
+.jpn-input:focus {
+  border-color: var(--color-amber);
+  box-shadow: 0 0 0 3px rgba(159, 220, 127, 0.12);
+}
+
+.jpn-input.input-correct {
+  border-color: #9FDC7F;
+  background: rgba(159, 220, 127, 0.06);
+}
+
+.jpn-input.input-incorrect {
+  border-color: #f66;
+  background: rgba(255, 80, 80, 0.06);
+}
+
+/* Answer feedback */
+.jpn-feedback {
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.jpn-feedback.correct {
+  background: rgba(159, 220, 127, 0.12);
+  border: 1px solid rgba(159, 220, 127, 0.3);
+  color: #9FDC7F;
+}
+
+.jpn-feedback.incorrect {
+  background: rgba(255, 80, 80, 0.1);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  color: #f88;
+}
+
+.jpn-feedback-answer {
+  font-weight: 400;
+  color: var(--color-cream);
+  margin-left: 0.5rem;
+}
+
+.jpn-level-change {
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
+  color: var(--color-cream-dim);
+}
+
+/* ---------- Results view ---------- */
+.jpn-results-header {
+  text-align: center;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.jpn-results-header h2 {
+  font-size: 2rem;
+  color: var(--color-cream);
+  margin-bottom: 0.5rem;
+}
+
+.jpn-results-accuracy {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-amber);
+  display: block;
+}
+
+.jpn-results-sub {
+  font-size: 0.9rem;
+  color: var(--color-cream-dim);
+}
+
+.jpn-results-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.jpn-result-stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(159,220,127,0.12);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.jpn-result-stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+}
+
+.jpn-result-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-cream-dim);
+}
+
+.jpn-results-list {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(159,220,127,0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.jpn-results-list-header {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-cream-dim);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.jpn-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.jpn-result-item:last-child {
+  border-bottom: none;
+}
+
+.jpn-result-kana {
+  font-size: 1.8rem;
+  color: var(--color-amber);
+  width: 3rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.jpn-result-romaji {
+  font-size: 0.9rem;
+  color: var(--color-cream);
+  flex: 1;
+}
+
+.jpn-result-status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.jpn-result-status.correct {
+  background: rgba(159,220,127,0.15);
+  color: #9FDC7F;
+}
+
+.jpn-result-status.incorrect {
+  background: rgba(255,80,80,0.12);
+  color: #f88;
+}
+
+.jpn-results-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Dashboard quick-selector strip ---------- */
+.jpn-quick-selector {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(159,220,127,0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.jpn-quick-selector h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-cream-dim);
+  margin: 0 0 0.75rem;
+}
+
+.jpn-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.jpn-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  border: 1px solid rgba(159,220,127,0.18);
+  background: transparent;
+  color: var(--color-cream-dim);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.jpn-chip.active {
+  background: rgba(159,220,127,0.12);
+  border-color: var(--color-amber);
+  color: var(--color-amber);
+}
+
+.jpn-chip:hover:not(.active) {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(159,220,127,0.3);
+}
+
+/* ---------- Lesson quiz (mini review) ---------- */
+.jpn-quiz-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(141,222,252,0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.jpn-quiz-prompt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-sage);
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- Dashboard configure link ---------- */
+.jpn-configure-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--color-amber);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.jpn-configure-link:hover {
+  color: var(--color-amber-light);
+}
+
+/* ---------- Section divider ---------- */
+.jpn-divider {
+  height: 1px;
+  background: rgba(159,220,127,0.08);
+  margin: 2rem 0;
+}
+
+/* ---------- Empty state ---------- */
+.jpn-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--color-cream-dim);
+}
+
+.jpn-empty-state p {
+  margin-bottom: 1rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .jpn-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jpn-kana-display {
+    font-size: 4.5rem;
+  }
+
+  .jpn-hero-kanji {
+    font-size: 3rem;
+  }
+
+  .jpn-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .jpn-results-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .jpn-review-meta {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .jpn-selector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jpn-srs-bars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .jpn-stats-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+  .jpn-kana-display {
+    font-size: 3.5rem;
+  }
+}

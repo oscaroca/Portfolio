@@ -94,6 +94,17 @@ export default function NavBar() {
                 </Nav.Link>
               </Nav.Item>
 
+              <Nav.Item>
+                <Nav.Link
+                  as={Link}
+                  to="/JPNLearning"
+                  onClick={() => updateExpanded(false)}
+                  className={isActive('/JPNLearning')}
+                >
+                  日本語
+                </Nav.Link>
+              </Nav.Item>
+
               {/* Language — mobile */}
               <div className="d-flex justify-content-center w-100 d-md-none ff6-nav-extras">
                 <Nav.Item className="d-flex align-items-center mx-2">

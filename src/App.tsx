@@ -23,6 +23,7 @@ import LofiBokeh from './components/LofiBokeh';
 import { TranslationsContextProvider } from './context/translationContext/TranslationContext';
 import { googleDriveService } from './services/googleDrive';
 import Resume from './pages/Resume';
+import JPNLearning from './pages/JPNLearning/JPNLearning';
 
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -68,6 +69,7 @@ export default function App() {
                 <Route path="/project/:projectId" element={<Projects />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/resume" element={<Resume />} />
+                <Route path="/JPNLearning" element={<JPNLearning />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
 
