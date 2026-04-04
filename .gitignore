@@ -30,5 +30,5 @@ Server/config.js
 
 *.af
 
-scripts/drive-manager/.env
-scripts/drive-manager/node_modules
+drive-cms.config.mjs
+.env.drive
