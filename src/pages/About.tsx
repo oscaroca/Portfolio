@@ -13,7 +13,7 @@ const SKILL_CATEGORIES = [
     label: 'BACKEND',
     color: 'torch',
     skills: [
-      { name: 'Python',  level: 9 },
+      { name: 'Python', level: 9 },
       { name: 'Node.js', level: 7 },
     ],
   },
@@ -22,14 +22,14 @@ const SKILL_CATEGORIES = [
     color: 'parchment',
     skills: [
       { name: 'TypeScript', level: 8 },
-      { name: 'React',      level: 8 },
+      { name: 'React', level: 8 },
     ],
   },
   {
     label: 'DATA',
     color: 'sage',
     skills: [
-      { name: 'SQL',     level: 8 },
+      { name: 'SQL', level: 8 },
       { name: 'ML / AI', level: 6 },
     ],
   },
@@ -38,7 +38,7 @@ const SKILL_CATEGORIES = [
     color: 'torch',
     skills: [
       { name: 'Docker', level: 7 },
-      { name: 'Git',    level: 9 },
+      { name: 'Git', level: 9 },
     ],
   },
 ];
@@ -46,7 +46,7 @@ const SKILL_CATEGORIES = [
 // ─── Diary Data ───────────────────────────────────────────────────────────────
 
 interface DiarySpread {
-  left:  { heading: string; date: string; text: string };
+  left: { heading: string; date: string; text: string };
   right: { heading: string; date: string; text: string };
 }
 
@@ -80,25 +80,40 @@ const SPREADS: DiarySpread[] = [
 // ─── Skill Bar ────────────────────────────────────────────────────────────────
 
 const SEG_COLOR: Record<string, string> = {
-  torch:     '#9FDC7F',
+  torch: '#9FDC7F',
   parchment: '#CCD3F0',
-  sage:      '#8DDEFC',
+  sage: '#8DDEFC',
 };
 
-function SkillBar({ name, level, color }: { name: string; level: number; color: string }) {
+function SkillBar({
+  name,
+  level,
+  color,
+}: {
+  name: string;
+  level: number;
+  color: string;
+}) {
   const MAX = 10;
   const fill = SEG_COLOR[color] ?? '#e87820';
   return (
     <div className="rpg-skill-row">
       <span className="rpg-skill-name">{name}</span>
-      <div className="rpg-skill-bar" aria-label={`${name} level ${level} of ${MAX}`}>
+      <div
+        className="rpg-skill-bar"
+        aria-label={`${name} level ${level} of ${MAX}`}
+      >
         {Array.from({ length: MAX }).map((_, i) => (
           <span
             key={i}
             className={`rpg-skill-seg${i < level ? ' rpg-skill-seg--on' : ''}`}
             style={
               i < level
-                ? { background: fill, boxShadow: `0 0 4px ${fill}88`, animationDelay: `${i * 55}ms` }
+                ? {
+                    background: fill,
+                    boxShadow: `0 0 4px ${fill}88`,
+                    animationDelay: `${i * 55}ms`,
+                  }
                 : undefined
             }
           />
@@ -157,131 +172,154 @@ export default function About() {
 
   return (
     <>
-    {/* Page-scoped background — unmounts when leaving About */}
-    <div
-      aria-hidden="true"
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 0,
-        backgroundImage: `url(${aboutBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center top',
-        opacity: 0.18,
-        pointerEvents: 'none',
-      }}
-    />
-    <section className="about-section tavern-section" style={{ position: 'relative', zIndex: 1 }}>
-      <Container fluid style={{ paddingBottom: '80px', paddingTop: '30px' }}>
-        <Container>
-
-          {/* ── RPG Layout ── */}
-          <div className="rpg-layout">
-
-            {/* Stats Board */}
-            <TavernBoard title="✦ STATS ✦" className="rpg-stats-panel" nailsBottom>
-              {SKILL_CATEGORIES.map((cat) => (
-                <div key={cat.label} className="rpg-category">
-                  <div className={`rpg-category-label rpg-cat--${cat.color}`}>{cat.label}</div>
-                  {cat.skills.map((s) => (
-                    <SkillBar key={s.name} color={cat.color} {...s} />
-                  ))}
-                </div>
-              ))}
-            </TavernBoard>
-
-            {/* Character Board */}
-            <TavernBoard title="✦ CHARACTER ✦" className="rpg-char-panel">
-              <div className="tavern-parchment">
-                <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable={false}>
-                  <div className="rpg-portrait-frame">
-                    <img src={myImg} alt="character portrait" className="rpg-portrait-img" />
+      {/* Page-scoped background — unmounts when leaving About */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 0,
+          backgroundImage: `url(${aboutBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center top',
+          opacity: 0.18,
+          pointerEvents: 'none',
+        }}
+      />
+      <section
+        className="about-section tavern-section"
+        style={{ position: 'relative', zIndex: 1 }}
+      >
+        <Container fluid style={{ paddingBottom: '80px', paddingTop: '30px' }}>
+          <Container>
+            {/* ── RPG Layout ── */}
+            <div className="rpg-layout">
+              {/* Stats Board */}
+              <TavernBoard
+                title="✦ STATS ✦"
+                className="rpg-stats-panel"
+                nailsBottom
+              >
+                {SKILL_CATEGORIES.map((cat) => (
+                  <div key={cat.label} className="rpg-category">
+                    <div className={`rpg-category-label rpg-cat--${cat.color}`}>
+                      {cat.label}
+                    </div>
+                    {cat.skills.map((s) => (
+                      <SkillBar key={s.name} color={cat.color} {...s} />
+                    ))}
                   </div>
-                </Tilt>
+                ))}
+              </TavernBoard>
 
-                <div className="rpg-char-name">OSCAROCA</div>
-                <div className="rpg-char-divider" />
-                <div className="rpg-char-class">Software Engineer</div>
+              {/* Character Board */}
+              <TavernBoard title="✦ CHARACTER ✦" className="rpg-char-panel">
+                <div className="tavern-parchment">
+                  <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} glareEnable={false}>
+                    <div className="rpg-portrait-frame">
+                      <img
+                        src={myImg}
+                        alt="character portrait"
+                        className="rpg-portrait-img"
+                      />
+                    </div>
+                  </Tilt>
 
-                <div className="rpg-char-lv-row">
-                  <span className="rpg-lv-label">LV</span>
-                  <span className="rpg-lv-num">99</span>
-                  <span className="rpg-exp">EXP ★★★</span>
-                </div>
+                  <div className="rpg-char-name">OSCAROCA</div>
+                  <div className="rpg-char-divider" />
+                  <div className="rpg-char-class">Software Engineer</div>
 
-                <div className="rpg-bar-row">
-                  <span className="rpg-bar-label">HP</span>
-                  <div className="rpg-bar-track">
-                    <div className="rpg-bar-fill rpg-bar-fill--hp" />
+                  <div className="rpg-char-lv-row">
+                    <span className="rpg-lv-label">LV</span>
+                    <span className="rpg-lv-num">25</span>
+                    <span className="rpg-exp">EXP ★★★</span>
                   </div>
-                  <span className="rpg-bar-val">999</span>
-                </div>
 
-                <div className="rpg-bar-row">
-                  <span className="rpg-bar-label">MP</span>
-                  <div className="rpg-bar-track">
-                    <div className="rpg-bar-fill rpg-bar-fill--mp" style={{ width: '80%' }} />
+                  <div className="rpg-bar-row">
+                    <span className="rpg-bar-label">HP</span>
+                    <div className="rpg-bar-track">
+                      <div className="rpg-bar-fill rpg-bar-fill--hp" />
+                    </div>
+                    <span className="rpg-bar-val">999</span>
                   </div>
-                  <span className="rpg-bar-val">800</span>
+
+                  <div className="rpg-bar-row">
+                    <span className="rpg-bar-label">MP</span>
+                    <div className="rpg-bar-track">
+                      <div
+                        className="rpg-bar-fill rpg-bar-fill--mp"
+                        style={{ width: '80%' }}
+                      />
+                    </div>
+                    <span className="rpg-bar-val">800</span>
+                  </div>
                 </div>
-              </div>
-            </TavernBoard>
+              </TavernBoard>
+            </div>
 
-          </div>
+            {/* ── Scroll / Diary ── */}
+            <div
+              className="tavern-scroll-wrap"
+              style={{ backgroundImage: `url(${bookBg})` }}
+            >
+              {/* Left nav button */}
+              <button
+                className="diary-btn diary-btn--side diary-btn--prev"
+                onClick={() => turn('prev')}
+                disabled={spreadIdx === 0 || !!turning}
+                aria-label="Previous page"
+              >
+                ◄
+              </button>
 
-          {/* ── Scroll / Diary ── */}
-          <div
-            className="tavern-scroll-wrap"
-            style={{ backgroundImage: `url(${bookBg})` }}
-          >
-            {/* Left nav button */}
-            <button
-              className="diary-btn diary-btn--side diary-btn--prev"
-              onClick={() => turn('prev')}
-              disabled={spreadIdx === 0 || !!turning}
-              aria-label="Previous page"
-            >◄</button>
+              {/* Right nav button */}
+              <button
+                className="diary-btn diary-btn--side diary-btn--next"
+                onClick={() => turn('next')}
+                disabled={spreadIdx === SPREADS.length - 1 || !!turning}
+                aria-label="Next page"
+              >
+                ►
+              </button>
 
-            {/* Right nav button */}
-            <button
-              className="diary-btn diary-btn--side diary-btn--next"
-              onClick={() => turn('next')}
-              disabled={spreadIdx === SPREADS.length - 1 || !!turning}
-              aria-label="Next page"
-            >►</button>
-
-            <div className={`tavern-scroll-body${turning ? ` tavern-scroll--${turning}` : ''}`}>
-              {/* Page number centered at top */}
-              <div className="diary-spread-num" aria-live="polite">
-                {spreadIdx + 1}&nbsp;/&nbsp;{SPREADS.length}
-              </div>
-
-              {/* Left page */}
-              <div className="diary-page diary-page--left">
-                <div className="diary-heading">{spread.left.heading}</div>
-                <div className="diary-date">{spread.left.date}</div>
-                <div className="diary-text">
-                  {spread.left.text.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
+              <div
+                className={`tavern-scroll-body${turning ? ` tavern-scroll--${turning}` : ''}`}
+              >
+                {/* Left page */}
+                <div className="diary-page diary-page--left">
+                  <div className="diary-spread-num" aria-live="polite">
+                    {spreadIdx * 2 + 1}
+                  </div>
+                  <div className="diary-heading">{spread.left.heading}</div>
+                  <div className="diary-date">{spread.left.date}</div>
+                  <div className="diary-text">
+                    {spread.left.text.split('\n\n').map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Spine */}
-              <div className="diary-spine" />
+                {/* Spine */}
+                <div className="diary-spine" />
 
-              {/* Right page */}
-              <div className="diary-page diary-page--right">
-                <div className="diary-heading">{spread.right.heading}</div>
-                <div className="diary-date">{spread.right.date}</div>
-                <div className="diary-text">
-                  {spread.right.text.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
+                {/* Right page */}
+                <div className="diary-page diary-page--right">
+                  <div className="diary-spread-num" aria-live="polite">
+                    {spreadIdx * 2 + 2}
+                  </div>
+                  <div className="diary-heading">{spread.right.heading}</div>
+                  <div className="diary-date">{spread.right.date}</div>
+                  <div className="diary-text">
+                    {spread.right.text.split('\n\n').map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
+          </Container>
         </Container>
-      </Container>
-    </section>
+      </section>
     </>
   );
 }
