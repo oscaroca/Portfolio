@@ -29,7 +29,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "sync:drive": "cd scripts/drive-manager && npm install --silent && npm run sync"
   },
   "eslintConfig": {
     "extends": [

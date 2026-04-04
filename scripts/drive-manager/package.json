@@ -1,0 +1,16 @@
+{
+  "name": "drive-manager",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync": "tsx src/index.ts",
+    "sync:en": "tsx src/index.ts --lang en",
+    "sync:es": "tsx src/index.ts --lang es"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "tsx": "^4.x",
+    "typescript": "^5.x"
+  }
+}
