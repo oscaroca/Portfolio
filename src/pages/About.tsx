@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import myImg from '../Assets/avatar.png';
 import aboutBg from '../Assets/about-bg.png';
+import bookBg from '../Assets/book-bg.png';
 import Tilt from 'react-parallax-tilt';
 import '../styles/About.css';
 
@@ -137,17 +138,6 @@ function TavernBoard({
   );
 }
 
-// ─── Scroll Roller ────────────────────────────────────────────────────────────
-
-function ScrollRoller() {
-  return (
-    <div className="tavern-roller" aria-hidden="true">
-      <span className="tavern-roller-knob tavern-roller-knob--l" />
-      <span className="tavern-roller-knob tavern-roller-knob--r" />
-    </div>
-  );
-}
-
 // ─── About Page ───────────────────────────────────────────────────────────────
 
 export default function About() {
@@ -240,10 +230,32 @@ export default function About() {
           </div>
 
           {/* ── Scroll / Diary ── */}
-          <div className="tavern-scroll-wrap">
-            <ScrollRoller />
+          <div
+            className="tavern-scroll-wrap"
+            style={{ backgroundImage: `url(${bookBg})` }}
+          >
+            {/* Left nav button */}
+            <button
+              className="diary-btn diary-btn--side diary-btn--prev"
+              onClick={() => turn('prev')}
+              disabled={spreadIdx === 0 || !!turning}
+              aria-label="Previous page"
+            >◄</button>
+
+            {/* Right nav button */}
+            <button
+              className="diary-btn diary-btn--side diary-btn--next"
+              onClick={() => turn('next')}
+              disabled={spreadIdx === SPREADS.length - 1 || !!turning}
+              aria-label="Next page"
+            >►</button>
 
             <div className={`tavern-scroll-body${turning ? ` tavern-scroll--${turning}` : ''}`}>
+              {/* Page number centered at top */}
+              <div className="diary-spread-num" aria-live="polite">
+                {spreadIdx + 1}&nbsp;/&nbsp;{SPREADS.length}
+              </div>
+
               {/* Left page */}
               <div className="diary-page diary-page--left">
                 <div className="diary-heading">{spread.left.heading}</div>
@@ -264,25 +276,6 @@ export default function About() {
                   {spread.right.text.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
                 </div>
               </div>
-            </div>
-
-            <ScrollRoller />
-
-            {/* Controls */}
-            <div className="diary-controls">
-              <button
-                className="diary-btn"
-                onClick={() => turn('prev')}
-                disabled={spreadIdx === 0 || !!turning}
-                aria-label="Previous page"
-              >◄</button>
-              <span className="diary-page-num">{spreadIdx + 1}&nbsp;/&nbsp;{SPREADS.length}</span>
-              <button
-                className="diary-btn"
-                onClick={() => turn('next')}
-                disabled={spreadIdx === SPREADS.length - 1 || !!turning}
-                aria-label="Next page"
-              >►</button>
             </div>
           </div>
 
