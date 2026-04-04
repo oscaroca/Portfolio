@@ -13,19 +13,8 @@ export class GoogleDriveService {
   }
 
   async fetchIndex(language: 'es' | 'en'): Promise<GoogleFileIndexEntry[]> {
-    const res = await fetch(
-      `https://www.googleapis.com/drive/v3/files/${language === 'es' ? this.indexFileIdES : this.indexFileIdEN}?alt=media&key=${this.apiKey}`,
-    );
-
-    console.log('Google Drive fetchIndex response:', res);
-
-    if (!res.ok) {
-      return [];
-    }
-    console.log(
-      'Google Drive fetchIndex response JSON:',
-      await res.clone().json(),
-    );
+    const res = await fetch(`/data/index-${language}.json`);
+    if (!res.ok) return [];
     return res.json() as unknown as GoogleFileIndexEntry[];
   }
 

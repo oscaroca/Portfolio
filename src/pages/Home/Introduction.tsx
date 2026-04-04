@@ -34,14 +34,16 @@ export default function Introduction() {
             <Tilt
               tiltMaxAngleX={8}
               tiltMaxAngleY={8}
-              glareEnable={true}
+              glareEnable={false}
               glareMaxOpacity={0.08}
-              glareColor="rgba(245,200,66,0.6)"
+              glareColor="rgba(99, 221, 58, 0.6)"
+              style={{ width: 'fit-content', alignSelf: 'center' }}
             >
               <img
                 src={myImg}
                 className="img-fluid"
                 alt="avatar"
+                draggable={false}
                 style={{
                   borderRadius: '8px',
                   filter: 'drop-shadow(0 0 24px rgba(245,200,66,0.18))',
@@ -75,7 +77,10 @@ const homeIntroBody = () => {
         {t('home.intro.interestsLead')}
       </span>
       <i>
-        <b style={{ color: 'var(--color-rose)' }}> {t('home.intro.interests')} </b>
+        <b style={{ color: 'var(--color-rose)' }}>
+          {' '}
+          {t('home.intro.interests')}{' '}
+        </b>
       </i>
       <br />
       <br />

@@ -18,13 +18,17 @@
   background:
     repeating-linear-gradient(
       180deg,
-      transparent 0px, transparent 36px,
-      rgba(0,0,0,0.22) 36px, rgba(0,0,0,0.22) 40px
+      transparent 0px,
+      transparent 36px,
+      rgba(0, 0, 0, 0.22) 36px,
+      rgba(0, 0, 0, 0.22) 40px
     ),
     repeating-linear-gradient(
       90deg,
-      transparent 0px, transparent 54px,
-      rgba(0,0,0,0.16) 54px, rgba(0,0,0,0.16) 58px
+      transparent 0px,
+      transparent 54px,
+      rgba(0, 0, 0, 0.16) 54px,
+      rgba(0, 0, 0, 0.16) 58px
     );
 }
 
@@ -36,19 +40,42 @@
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 280px 380px at 2% 6%,  rgba(232,120,32,0.16) 0%, transparent 70%),
-    radial-gradient(ellipse 280px 380px at 98% 6%, rgba(232,120,32,0.16) 0%, transparent 70%);
+    radial-gradient(
+      ellipse 280px 380px at 2% 6%,
+      rgba(232, 120, 32, 0.16) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 280px 380px at 98% 6%,
+      rgba(232, 120, 32, 0.16) 0%,
+      transparent 70%
+    );
   animation: torchFlicker 2.8s ease-in-out infinite;
 }
 
 @keyframes torchFlicker {
-  0%,  100% { opacity: 1; }
-  10%        { opacity: 0.80; }
-  25%        { opacity: 0.95; }
-  40%        { opacity: 0.72; }
-  55%        { opacity: 1; }
-  70%        { opacity: 0.86; }
-  85%        { opacity: 0.94; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 0.95;
+  }
+  40% {
+    opacity: 0.72;
+  }
+  55% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.86;
+  }
+  85% {
+    opacity: 0.94;
+  }
 }
 
 /* Make sure all content sits above the stone texture */
@@ -71,24 +98,27 @@
 .tavern-board {
   position: relative;
   /* Horizontal wood plank grain */
-  background:
-    repeating-linear-gradient(
-      180deg,
-      #1e0e04 0px,  #1e0e04 13px,
-      #160a02 13px, #160a02 15px,
-      #1e0e04 15px, #1e0e04 28px,
-      #190c03 28px, #190c03 30px
-    );
-  border-top:    3px solid #6b4018;
-  border-left:   3px solid #6b4018;
+  background: repeating-linear-gradient(
+    180deg,
+    #1e0e04 0px,
+    #1e0e04 13px,
+    #160a02 13px,
+    #160a02 15px,
+    #1e0e04 15px,
+    #1e0e04 28px,
+    #190c03 28px,
+    #190c03 30px
+  );
+  border-top: 3px solid #6b4018;
+  border-left: 3px solid #6b4018;
   border-bottom: 3px solid #3d1e08;
-  border-right:  3px solid #3d1e08;
+  border-right: 3px solid #3d1e08;
   border-radius: 10px;
   /* Pixel hard drop shadow — no blur */
   box-shadow:
     4px 4px 0 #0a0400,
-    inset 1px 1px 0 rgba(255,255,255,0.05),
-    inset -1px -1px 0 rgba(0,0,0,0.45);
+    inset 1px 1px 0 rgba(255, 255, 255, 0.05),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.45);
   padding: 1.3rem 1.4rem 1.5rem;
 }
 
@@ -98,14 +128,33 @@
   width: 11px;
   height: 11px;
   border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, #ddb030, #8a5e10 58%, #4a2c06 100%);
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.18);
+  background: radial-gradient(
+    circle at 38% 32%,
+    #ddb030,
+    #8a5e10 58%,
+    #4a2c06 100%
+  );
+  box-shadow:
+    1px 1px 0 rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
   z-index: 2;
 }
-.tavern-nail--tl { top: 7px;  left: 7px; }
-.tavern-nail--tr { top: 7px;  right: 7px; }
-.tavern-nail--bl { bottom: 7px; left: 7px; }
-.tavern-nail--br { bottom: 7px; right: 7px; }
+.tavern-nail--tl {
+  top: 7px;
+  left: 7px;
+}
+.tavern-nail--tr {
+  top: 7px;
+  right: 7px;
+}
+.tavern-nail--bl {
+  bottom: 7px;
+  left: 7px;
+}
+.tavern-nail--br {
+  bottom: 7px;
+  right: 7px;
+}
 
 /* Board title — carved wooden sign look */
 .tavern-sign {
@@ -117,14 +166,16 @@
   margin: 0.2rem 0 1.2rem;
   padding: 0.35rem 0.7rem;
   background: #2d1608;
-  border-top:    2px solid #7a4a18;
-  border-left:   2px solid #7a4a18;
+  border-top: 2px solid #7a4a18;
+  border-left: 2px solid #7a4a18;
   border-bottom: 2px solid #3a1a06;
-  border-right:  2px solid #3a1a06;
+  border-right: 2px solid #3a1a06;
   border-radius: 8px;
   box-shadow: 2px 2px 0 #0a0400;
   display: block;
-  text-shadow: 0 0 10px rgba(245,200,66,0.38), 1px 1px 0 #0a0400;
+  text-shadow:
+    0 0 10px rgba(245, 200, 66, 0.38),
+    1px 1px 0 #0a0400;
 }
 
 /* ============================================================
@@ -145,11 +196,17 @@
   letter-spacing: 0.18em;
   margin-bottom: 0.5rem;
   padding-bottom: 0.28rem;
-  border-bottom: 1px solid rgba(232,120,32,0.2);
+  border-bottom: 1px solid rgba(232, 120, 32, 0.2);
 }
-.rpg-cat--torch     { color: #9FDC7F; }
-.rpg-cat--parchment { color: #CCD3F0; }
-.rpg-cat--sage      { color: #8DDEFC; }
+.rpg-cat--torch {
+  color: #9fdc7f;
+}
+.rpg-cat--parchment {
+  color: #ccd3f0;
+}
+.rpg-cat--sage {
+  color: #8ddefc;
+}
 
 .rpg-skill-row {
   display: flex;
@@ -179,11 +236,11 @@
 .rpg-skill-seg {
   width: 13px;
   height: 9px;
-  background: rgba(0,0,0,0.45);
-  border-top:  1px solid rgba(0,0,0,0.6);
-  border-left: 1px solid rgba(0,0,0,0.6);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  border-right:  1px solid rgba(255,255,255,0.05);
+  background: rgba(0, 0, 0, 0.45);
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  border-left: 1px solid rgba(0, 0, 0, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
   flex-shrink: 0;
 }
 
@@ -194,8 +251,14 @@
 }
 
 @keyframes segPop {
-  from { opacity: 0; transform: scaleY(0.2); }
-  to   { opacity: 1; transform: scaleY(1); }
+  from {
+    opacity: 0;
+    transform: scaleY(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
 
 .rpg-skill-level {
@@ -224,14 +287,20 @@
   flex-direction: column;
   align-items: center;
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.07) 0%, transparent 12%, transparent 88%, rgba(0,0,0,0.07) 100%),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.07) 0%,
+      transparent 12%,
+      transparent 88%,
+      rgba(0, 0, 0, 0.07) 100%
+    ),
     #e2cc8e;
-  border-top:    2px solid #c4a060;
-  border-left:   2px solid #c4a060;
+  border-top: 2px solid #c4a060;
+  border-left: 2px solid #c4a060;
   border-bottom: 2px solid #8a6820;
-  border-right:  2px solid #8a6820;
+  border-right: 2px solid #8a6820;
   border-radius: 10px;
-  box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
   padding: 1rem 0.9rem 0.9rem;
 }
 
@@ -240,20 +309,27 @@
   width: 140px;
   height: 140px;
   margin-bottom: 0.85rem;
-  border-top:    3px solid #8b6010;
-  border-left:   3px solid #8b6010;
+  border-top: 3px solid #8b6010;
+  border-left: 3px solid #8b6010;
   border-bottom: 3px solid #4a2e08;
-  border-right:  3px solid #4a2e08;
+  border-right: 3px solid #4a2e08;
   border-radius: 10px;
-  box-shadow: 3px 3px 0 #0a0400, inset 0 0 14px rgba(0,0,0,0.35);
+  box-shadow:
+    3px 3px 0 #0a0400,
+    inset 0 0 14px rgba(0, 0, 0, 0.35);
   overflow: hidden;
   background: #1c0e05;
   animation: charFloat 3s ease-in-out infinite;
 }
 
 @keyframes charFloat {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .rpg-portrait-img {
@@ -274,7 +350,7 @@
   color: #2a1400;
   letter-spacing: 0.08em;
   margin-bottom: 0.25rem;
-  text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .rpg-char-divider {
@@ -300,8 +376,8 @@
   width: 100%;
   padding: 0.25rem 0.5rem;
   margin-bottom: 0.65rem;
-  background: rgba(0,0,0,0.08);
-  border: 1px solid rgba(100,65,20,0.28);
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(100, 65, 20, 0.28);
   border-radius: 6px;
 }
 
@@ -315,7 +391,7 @@
   font-family: 'Press Start 2P', monospace;
   font-size: 0.92em;
   color: #2a1400;
-  text-shadow: 1px 1px 0 rgba(255,255,255,0.15);
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .rpg-exp {
@@ -345,32 +421,36 @@
 .rpg-bar-track {
   flex: 1;
   height: 9px;
-  background: rgba(0,0,0,0.2);
-  border-top:    1px solid rgba(0,0,0,0.35);
-  border-left:   1px solid rgba(0,0,0,0.35);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  border-right:  1px solid rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.35);
+  border-left: 1px solid rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   overflow: hidden;
 }
 
-.rpg-bar-fill { height: 100%; }
+.rpg-bar-fill {
+  height: 100%;
+}
 
 .rpg-bar-fill--hp {
   width: 100%;
   background: linear-gradient(to right, #3a9830, #68c038);
-  box-shadow: 0 0 5px rgba(80,180,50,0.5);
+  box-shadow: 0 0 5px rgba(80, 180, 50, 0.5);
   animation: barIn 1.3s ease-out;
 }
 
 .rpg-bar-fill--mp {
   background: linear-gradient(to right, #7840c0, #a868e8);
-  box-shadow: 0 0 5px rgba(140,80,220,0.45);
+  box-shadow: 0 0 5px rgba(140, 80, 220, 0.45);
   animation: barIn 1.6s ease-out;
 }
 
 @keyframes barIn {
-  from { width: 0 !important; }
+  from {
+    width: 0 !important;
+  }
 }
 
 .rpg-bar-val {
@@ -398,60 +478,84 @@
 }
 
 /* ============================================================
-   Scroll / Diary
+   Scroll / Diary — Pixel-art open book background
    ============================================================ */
+
+/* Outer wrap = the book image */
 .tavern-scroll-wrap {
-  max-width: 900px;
+  max-width: 980px;
   margin: 0 auto;
   position: relative;
+  /* book-bg.png is set via inline style in TSX */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* Padding pushes content into the visual page area of the image          */
+  padding: 2.5% 4.5% 22% 4.5%;
+  box-shadow: 0 18px 56px rgba(0, 0, 0, 0.55);
+  border-radius: 6px;
+  overflow: visible;
 }
 
-/* Wooden roller rod */
-.tavern-roller {
-  position: relative;
-  height: 22px;
-  background: linear-gradient(
-    180deg,
-    #4a2a08 0%,
-    #7a4a14 18%,
-    #c08030 42%,
-    #e0b050 50%,
-    #c08030 58%,
-    #7a4a14 82%,
-    #4a2a08 100%
-  );
-  /* Hard pixel shadow */
-  box-shadow: 0 3px 0 #0a0400, inset 0 1px 0 rgba(255,255,255,0.12);
-  z-index: 2;
-}
-
-/* Round knobs at roller ends */
-.tavern-roller-knob {
+/* ── Side navigation buttons ── */
+.diary-btn--side {
   position: absolute;
-  top: 50%;
+  top: 85%;
   transform: translateY(-50%);
+  z-index: 20;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7em;
+  padding-bottom: 2px;
   width: 30px;
   height: 30px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, #a87030, #5a3010 55%, #2e1608 100%);
-  box-shadow: 2px 2px 0 #0a0400, inset 0 1px 0 rgba(255,255,255,0.1);
-  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Red leather bookmark style matching the pixel-art book */
+  background: linear-gradient(180deg, #8a1e0c 0%, #661408 50%, #481006 100%);
+  color: #f5d8a8;
+  border: 2px solid #b03820;
+  border-bottom-color: #300a04;
+  border-right-color: #300a04;
+  border-radius: 8px 8px 8px 8px;
+  box-shadow:
+    3px 3px 0 #140402,
+    inset 0 1px 0 rgba(255, 220, 160, 0.15);
+  cursor: pointer;
+  line-height: 1;
+  transition:
+    background 0.08s,
+    color 0.08s;
 }
-.tavern-roller-knob--l { left:  -10px; }
-.tavern-roller-knob--r { right: -10px; }
 
-/* Scroll content body */
+.diary-btn--prev {
+  left: 60px;
+}
+.diary-btn--next {
+  right: 60px;
+}
+
+.diary-btn--side:hover:not(:disabled) {
+  background: linear-gradient(180deg, #aa2a10 0%, #821a08 50%, #581208 100%);
+  color: #ffe8b8;
+}
+.diary-btn--side:active:not(:disabled) {
+  transform: translateY(calc(-50% + 2px));
+  box-shadow: 1px 1px 0 #140402;
+}
+.diary-btn--side:disabled {
+  opacity: 0.22;
+  cursor: not-allowed;
+}
+
+/* ── Book-spread content area ── */
 .tavern-scroll-body {
   display: flex;
-  min-height: 260px;
+  min-height: 280px;
   position: relative;
-  /* Parchment roll shadow at top/bottom edges */
-  box-shadow:
-    inset 0  12px 20px rgba(0,0,0,0.18),
-    inset 0 -12px 20px rgba(0,0,0,0.18);
 }
 
-/* Page-turn animations on scroll body */
+/* Page turn animations */
 .tavern-scroll--next {
   animation: scrollNext 0.38s ease-in-out;
 }
@@ -460,19 +564,43 @@
 }
 
 @keyframes scrollNext {
-  0%   { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
-  40%  { opacity: 0.30; transform: perspective(1400px) rotateY(-2.5deg) translateX(8px); }
-  60%  { opacity: 0.30; transform: perspective(1400px) rotateY(2deg) translateX(-8px); }
-  100% { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
+  0% {
+    opacity: 1;
+    transform: perspective(1400px) rotateY(0deg) translateX(0);
+  }
+  40% {
+    opacity: 0.25;
+    transform: perspective(1400px) rotateY(-2.5deg) translateX(8px);
+  }
+  60% {
+    opacity: 0.25;
+    transform: perspective(1400px) rotateY(2deg) translateX(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1400px) rotateY(0deg) translateX(0);
+  }
 }
 @keyframes scrollPrev {
-  0%   { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
-  40%  { opacity: 0.30; transform: perspective(1400px) rotateY(2.5deg) translateX(-8px); }
-  60%  { opacity: 0.30; transform: perspective(1400px) rotateY(-2deg) translateX(8px); }
-  100% { opacity: 1;    transform: perspective(1400px) rotateY(0deg) translateX(0); }
+  0% {
+    opacity: 1;
+    transform: perspective(1400px) rotateY(0deg) translateX(0);
+  }
+  40% {
+    opacity: 0.25;
+    transform: perspective(1400px) rotateY(2.5deg) translateX(-8px);
+  }
+  60% {
+    opacity: 0.25;
+    transform: perspective(1400px) rotateY(-2deg) translateX(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1400px) rotateY(0deg) translateX(0);
+  }
 }
 
-/* Parchment glint on turn */
+/* Glint sweep on turn */
 .tavern-scroll--next::before,
 .tavern-scroll--prev::before {
   content: '';
@@ -480,168 +608,147 @@
   inset: 0;
   z-index: 10;
   pointer-events: none;
-  background: linear-gradient(110deg, transparent 22%, rgba(240,218,150,0.32) 50%, transparent 78%);
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 245, 180, 0.22) 50%,
+    transparent 80%
+  );
 }
-.tavern-scroll--next::before { animation: glintR 0.38s ease-in-out; }
-.tavern-scroll--prev::before { animation: glintL 0.38s ease-in-out; }
+.tavern-scroll--next::before {
+  animation: glintR 0.38s ease-in-out;
+}
+.tavern-scroll--prev::before {
+  animation: glintL 0.38s ease-in-out;
+}
 
 @keyframes glintR {
-  from { transform: translateX(-110%); opacity: 0.7; }
-  to   { transform: translateX(110%);  opacity: 0; }
+  from {
+    transform: translateX(-110%);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(110%);
+    opacity: 0;
+  }
 }
 @keyframes glintL {
-  from { transform: translateX(110%);  opacity: 0.7; }
-  to   { transform: translateX(-110%); opacity: 0; }
+  from {
+    transform: translateX(110%);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(-110%);
+    opacity: 0;
+  }
 }
 
-/* Parchment pages */
+/* ── Page number — top center of the spread ── */
+.diary-spread-num {
+  position: absolute;
+  /* Same vertical level as the headings */
+
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.42em;
+  color: rgba(55, 28, 8, 0.72);
+  letter-spacing: 0.1em;
+  user-select: none;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* ── Parchment pages — transparent so the book image shows ── */
 .diary-page {
   flex: 1;
-  padding: 1.8rem 2rem;
+  padding: 0.2rem 1.6rem 1rem;
   position: relative;
-  background-color: #edd9a0;
-  /* Ruled lines */
+  background-color: transparent;
+  /* Subtle ruled lines over the image's parchment */
   background-image: linear-gradient(
     transparent calc(100% - 1px),
-    rgba(90,55,18,0.14) calc(100% - 1px)
+    rgba(90, 52, 14, 0.14) calc(100% - 1px)
   );
-  background-size: 100% 30px;
-  background-position: 0 10px;
+  background-size: 100% 26px;
+  background-position: 0 14px;
 }
 
-.diary-page--left  { box-shadow: inset -16px 0 28px rgba(0,0,0,0.14); }
-.diary-page--right { box-shadow: inset  16px 0 28px rgba(0,0,0,0.14); }
-
-/* Worn corner curl — bottom right */
-.diary-page--right::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 26px;
-  height: 26px;
-  background: linear-gradient(225deg, #cda870 50%, #ddc888 50%);
-  box-shadow: -2px -2px 3px rgba(0,0,0,0.18);
+/* Symmetric padding — content centers within each page's visual area */
+.diary-page--left {
+  padding-right: 1.6rem;
+}
+.diary-page--right {
+  padding-left: 1.6rem;
 }
 
-/* Center spine */
+/* ── Invisible spine — image provides the visual ── */
 .diary-spine {
-  width: 18px;
+  width: 28px;
   flex-shrink: 0;
-  background: linear-gradient(
-    to right,
-    #3e1e06 0%,
-    #6a3e10 25%,
-    #b07828 50%,
-    #6a3e10 75%,
-    #3e1e06 100%
-  );
-  box-shadow: -4px 0 10px rgba(0,0,0,0.3), 4px 0 10px rgba(0,0,0,0.3);
-  z-index: 2;
+  background: transparent;
 }
 
-/* Diary text */
+/* ── Diary text ── */
 .diary-heading {
   font-family: 'Kalam', cursive;
-  font-size: 1.2em;
+  font-size: 1.12em;
   font-weight: 700;
-  color: #2e1600;
-  margin-bottom: 0.12rem;
+  color: #3a1a04;
+  margin-bottom: 0.1rem;
+  margin-top: 37px;
   line-height: 1.3;
+  text-align: center;
 }
 
 .diary-date {
   font-family: 'Kalam', cursive;
-  font-size: 0.74em;
+  font-size: 0.72em;
   color: #7a4e20;
-  padding-bottom: 0.38rem;
-  margin-bottom: 0.65rem;
-  border-bottom: 1px solid rgba(90,55,18,0.24);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(90, 55, 18, 0.22);
+  text-align: center;
 }
 
 .diary-text {
   font-family: 'Kalam', cursive;
-  font-size: 0.88em;
-  color: #261200;
-  line-height: 1.85;
+  font-size: 0.86em;
+  color: #2e1400;
+  line-height: 1.82;
+  text-align: center;
 }
-.diary-text p { margin: 0 0 0.6rem; }
-
-/* Controls */
-.diary-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.4rem;
-  padding: 0.5rem 1rem;
-  /* Dark wood base under the scroll */
-  background:
-    repeating-linear-gradient(
-      180deg,
-      #1e0e04 0px, #1e0e04 6px,
-      #160a02 6px, #160a02 8px
-    );
-  border-top:    2px solid #3d1e08;
-  border-left:   2px solid #6b4018;
-  border-bottom: 2px solid #3d1e08;
-  border-right:  2px solid #3d1e08;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 3px 3px 0 #0a0400;
+.diary-text p {
+  margin: 0 0 0.55rem;
 }
 
-.diary-btn {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.58em;
-  background: #2d1608;
-  color: #c8a050;
-  border-top:    2px solid #7a4a18;
-  border-left:   2px solid #7a4a18;
-  border-bottom: 2px solid #3a1a06;
-  border-right:  2px solid #3a1a06;
-  border-radius: 8px;
-  box-shadow: 2px 2px 0 #0a0400;
-  padding: 0.32rem 0.65rem;
-  cursor: pointer;
-  line-height: 1;
-  transition: background 0.1s;
-}
-
-.diary-btn:hover:not(:disabled) {
-  background: #3d1e08;
-  color: #f0d060;
-}
-
-.diary-btn:active:not(:disabled) {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 #0a0400;
-}
-
-.diary-btn:disabled {
-  opacity: 0.28;
-  cursor: not-allowed;
-}
-
-.diary-page-num {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 0.5em;
-  color: #c8a050;
-  letter-spacing: 0.1em;
-  user-select: none;
-  text-shadow: 1px 1px 0 #0a0400;
-}
-
-/* ── Mobile scroll ── */
+/* ── Mobile ── */
 @media (max-width: 640px) {
+  .tavern-scroll-wrap {
+    padding: 8% 6% 26% 6%;
+  }
   .tavern-scroll-body {
     flex-direction: column;
+    min-height: unset;
   }
   .diary-spine {
     width: 100%;
-    height: 12px;
-    background: linear-gradient(to bottom, #3e1e06 0%, #b07828 50%, #3e1e06 100%);
-    box-shadow: 0 -3px 8px rgba(0,0,0,0.3), 0 3px 8px rgba(0,0,0,0.3);
+    height: 10px;
   }
-  .diary-page--right::after { display: none; }
-  .diary-page { padding: 1.3rem 1.4rem; }
-  .tavern-roller-knob { display: none; }
+  .diary-page {
+    padding: 0.5rem 1rem 0.8rem;
+  }
+  .diary-btn--side {
+    top: 30%;
+  }
+  .diary-btn--prev {
+    left: 4px;
+  }
+  .diary-btn--next {
+    right: 4px;
+  }
+  .diary-spread-num {
+    font-size: 0.4em;
+  }
 }

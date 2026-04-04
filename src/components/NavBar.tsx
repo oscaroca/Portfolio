@@ -34,7 +34,7 @@ export default function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex align-items-center">
-          <img src={logo} className="img-fluid logo" alt="brand" />
+          <img src={logo} className="img-fluid logo" alt="brand" draggable={false} />
         </Navbar.Brand>
 
         <Navbar.Toggle

@@ -67,6 +67,7 @@ export default function Home() {
                 src={homeLogo}
                 alt="home pic"
                 className="img-fluid"
+                draggable={false}
                 style={{ filter: 'drop-shadow(0 0 30px rgba(245,200,66,0.2))' }}
               />
             </Col>

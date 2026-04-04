@@ -15,6 +15,7 @@ export function ArticlePreview({
         <img
           src={googleDriveService.getPreviewUrl(file.previewImage)}
           alt={file.title}
+          draggable={false}
         />
       </div>
       <div className="sticky-note-body">
