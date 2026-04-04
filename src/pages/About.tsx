@@ -221,6 +221,7 @@ export default function About() {
                         src={myImg}
                         alt="character portrait"
                         className="rpg-portrait-img"
+                        draggable={false}
                       />
                     </div>
                   </Tilt>
