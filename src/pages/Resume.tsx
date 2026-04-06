@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-
 import TypewriterStack from '../components/TypewriterStack';
 import { googleDriveRepository } from '../services/googleDrive';
+import './Resume.css';
 
 const RESUME_FILE_ID = '1rXumkS0dPuFwjaR7FmiEHL085_LGnGCe';
 
@@ -17,9 +17,7 @@ export default function Resume() {
     (async () => {
       try {
         const blob = await googleDriveRepository.getFileBlob(RESUME_FILE_ID);
-        if (!blob) {
-          throw new Error('No file returned from Google Drive');
-        }
+        if (!blob) throw new Error('No file returned from Google Drive');
         const url = URL.createObjectURL(blob);
         if (mounted) {
           setPdfUrl(url);
@@ -36,9 +34,7 @@ export default function Resume() {
 
     return () => {
       mounted = false;
-      if (pdfUrl) {
-        URL.revokeObjectURL(pdfUrl);
-      }
+      if (pdfUrl) URL.revokeObjectURL(pdfUrl);
     };
   }, []);
 
@@ -56,7 +52,7 @@ export default function Resume() {
       >
         <Container
           style={{
-            padding: ' 9rem 0 2rem !important',
+            padding: '9rem 0 2rem !important',
             color: 'whitesmoke',
             textAlign: 'left',
           }}
@@ -79,9 +75,9 @@ export default function Resume() {
                     download="Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: '#fff' }}
+                    className="resume-download-btn"
                   >
-                    Download Resume
+                    ⬇ Download Resume
                   </a>
                 </div>
                 <iframe
