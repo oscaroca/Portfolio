@@ -466,6 +466,10 @@
 @media (max-width: 768px) {
   .rpg-layout {
     flex-direction: column-reverse;
+    align-items: center;
+  }
+  .rpg-stats-panel {
+    width: 100%;
   }
   .rpg-char-panel {
     flex: unset;
