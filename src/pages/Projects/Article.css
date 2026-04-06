@@ -1,0 +1,248 @@
+/* ===== Article — parchment page layout ===== */
+
+.article-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem 4rem;
+}
+
+/* Header: back button + title above pages */
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 750px;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.article-heading {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 0.85em !important;
+  color: var(--color-amber) !important;
+  line-height: 1.7 !important;
+  text-shadow: 0 0 18px rgba(159, 220, 127, 0.3);
+  margin: 0;
+}
+
+.article-back-btn {
+  font-family: 'DM Mono', monospace !important;
+  font-size: 0.78em !important;
+  background-color: rgba(159, 220, 127, 0.08) !important;
+  border: 1px solid rgba(159, 220, 127, 0.3) !important;
+  color: var(--color-cream-dim) !important;
+  padding: 0.4rem 1rem !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+  transition: all 0.25s ease !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.article-back-btn:hover {
+  transform: translateY(-2px) !important;
+  background-color: rgba(159, 220, 127, 0.16) !important;
+  border-color: var(--color-amber) !important;
+  color: var(--color-amber) !important;
+}
+
+/* ===== Pages stack ===== */
+.article-pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+
+/* ===== Individual parchment page ===== */
+.article-page {
+  position: relative;
+  width: 750px;
+  max-width: 100%;
+  filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.7));
+}
+
+/* The parchment image fills the page container */
+.article-page-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  border-radius: 2px;
+}
+
+/* Content sits on top of the parchment image */
+.article-page-content {
+  position: relative;
+  z-index: 1;
+  /* Padding respects the decorative border in the image */
+  padding: 65px 73px 75px;
+  color: #2e1500;
+  font-family: 'Kalam', cursive;
+  font-size: 1em;
+  line-height: 1.85;
+  min-height: 200px;
+}
+
+/* ===== HTML content typography ===== */
+.article-page-content h1,
+.article-page-content h2,
+.article-page-content h3,
+.article-page-content h4 {
+  font-family: 'Press Start 2P', monospace !important;
+  color: #5a2800 !important;
+  line-height: 1.6 !important;
+  margin-top: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.article-page-content h1 {
+  font-size: 0.9em !important;
+}
+.article-page-content h2 {
+  font-size: 0.78em !important;
+}
+.article-page-content h3 {
+  font-size: 0.68em !important;
+}
+.article-page-content h4 {
+  font-size: 0.6em !important;
+}
+
+.article-page-content p {
+  margin-bottom: 0.9rem;
+}
+
+.article-page-content a {
+  color: #7a3a00 !important;
+  text-decoration: underline;
+}
+
+.article-page-content a:hover {
+  color: #c46000 !important;
+}
+
+.article-page-content img {
+  max-width: 100%;
+  border-radius: 4px;
+  border: 1px solid rgba(90, 40, 0, 0.25);
+  margin: 0.5rem 0;
+}
+
+.article-page-content ul,
+.article-page-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.article-page-content li {
+  margin-bottom: 0.4rem;
+  line-height: 1.75;
+}
+
+.article-page-content strong,
+.article-page-content b {
+  color: #4a1800;
+  font-weight: 700;
+}
+
+.article-page-content em,
+.article-page-content i {
+  color: #6b3010;
+}
+
+.article-page-content code {
+  font-family: 'DM Mono', monospace;
+  background: rgba(90, 40, 0, 0.08);
+  border: 1px solid rgba(90, 40, 0, 0.2);
+  border-radius: 3px;
+  color: #5a2800;
+  padding: 0.1em 0.35em;
+  font-size: 0.88em;
+}
+
+.article-page-content pre {
+  font-family: 'DM Mono', monospace;
+  background: rgba(90, 40, 0, 0.06);
+  border: 1px solid rgba(90, 40, 0, 0.18);
+  border-radius: 4px;
+  color: #5a2800;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  font-size: 0.85em;
+  margin-bottom: 1rem;
+}
+
+.article-page-content blockquote {
+  border-left: 3px solid rgba(90, 40, 0, 0.4);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #6b3010;
+  font-style: italic;
+}
+
+.article-page-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.article-page-content th,
+.article-page-content td {
+  border: 1px solid rgba(90, 40, 0, 0.25);
+  padding: 0.45rem 0.7rem;
+  color: #2e1500;
+}
+
+.article-page-content th {
+  background: rgba(90, 40, 0, 0.08);
+  color: #5a2800;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65em;
+}
+
+.article-page-content hr {
+  border: none;
+  border-top: 1px solid rgba(90, 40, 0, 0.2);
+  margin: 1.25rem 0;
+}
+
+/* Page number */
+.article-page-number {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: 'Kalam', cursive;
+  font-size: 0.8em;
+  color: rgba(90, 40, 0, 0.5);
+  pointer-events: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 800px) {
+  .article-page-content {
+    padding: 50px 50px 60px;
+    font-size: 0.95em;
+  }
+  .article-heading {
+    font-size: 0.65em !important;
+  }
+}
+
+@media (max-width: 550px) {
+  .article-page-content {
+    padding: 40px 30px 50px;
+    font-size: 0.88em;
+  }
+  .article-header {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+}
