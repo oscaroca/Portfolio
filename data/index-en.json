@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1s4sFIhjiEoP5pKe97VUMxC0G1lX4z5mhIanYLq_dri0",
+    "mimeType": "application/vnd.google-apps.document",
+    "title": "JPN Learning Tool",
+    "description": "A gamified Hiragana & Katakana study component for React, inspired by WaniKani",
+    "previewImage": "1x9WnCD4L4qcwbcTxE1iN00Os_6-M1prZ"
+  },
+  {
+    "id": "1pWnMvNQaFw0WlZpg0-GglZEX6000Aivb9ioa5SpsRvA",
+    "mimeType": "application/vnd.google-apps.document",
+    "title": "Infinite Kanji Craft",
+    "description": "A Japanese language learning game inspired by Infinite Craft. Drag kanji tiles together to discover new words, learn their readings, and explore how the Japanese language builds meaning through combination.",
+    "previewImage": "194NAHt0JoS7BpImgMx_CJfbp3wDxuQam"
+  },
+  {
+    "id": "1bU90l4xbw8sIqwLU8p5yDv7HDyME2_prj8nzWxfH1y8",
+    "mimeType": "application/vnd.google-apps.document",
+    "title": "Modular AI Companion",
+    "description": "A production-ready, modular AI companion system with multiple interaction modes, persistent memory, and extensible integrations. ",
+    "previewImage": "1D4Da34dOoYWhh0LQSK8EJyheHhPZVWn-"
+  },
+  {
+    "id": "1DebV3RxzSdJ9N3s_OcM3sXDL28IB9gr2VFZxtOrdWgM",
+    "mimeType": "application/vnd.google-apps.document",
+    "title": "DriveCSM",
+    "description": "Turning Google Drive into a Headless CMS: Building DriveCMS",
+    "previewImage": "1jt3st94Ye1USHPLGtS2MNYEUt75KyhV2"
+  },
+  {
+    "id": "1-a3QserWXMX0K7y2W_PmxLCiSivD1nCfcQJQvWFIQgQ",
+    "mimeType": "application/vnd.google-apps.document",
+    "title": "DNAF",
+    "description": "Automatic Fishing script for Duet Night Abyss",
+    "previewImage": "1C-bxcNGvNrdYoL_AWc0plwoUMmvI7llP"
+  }
+]
