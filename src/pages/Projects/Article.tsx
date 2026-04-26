@@ -1,5 +1,5 @@
 import { selectedFile } from './Projects';
-import articleBg from '../../Assets/article-bg.png';
+import articleBg from '../../assets/article_bg.png';
 import './Article.css';
 
 /** Split raw HTML into pages by grouping block-level elements up to ~charsPerPage plain-text chars */
@@ -45,19 +45,28 @@ export function Article({
     <div className="article-wrapper">
       <div className="article-header">
         <h3 className="article-heading">{document.entry.title}</h3>
-        <button className="article-back-btn" onClick={onBack}>◄ Go Back</button>
+        <button className="article-back-btn" onClick={onBack}>
+          ◄ Go Back
+        </button>
       </div>
 
       <div className="article-pages">
         {pages.map((pageHtml, i) => (
           <div className="article-page" key={i}>
-            <img src={articleBg} className="article-page-bg" alt="" aria-hidden="true" />
+            <img
+              src={articleBg}
+              className="article-page-bg"
+              alt=""
+              aria-hidden="true"
+            />
             <div
               className="article-page-content"
               dangerouslySetInnerHTML={{ __html: pageHtml }}
             />
             {pages.length > 1 && (
-              <span className="article-page-number">{i + 1} / {pages.length}</span>
+              <span className="article-page-number">
+                {i + 1} / {pages.length}
+              </span>
             )}
           </div>
         ))}

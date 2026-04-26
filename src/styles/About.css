@@ -490,7 +490,7 @@
   max-width: 980px;
   margin: 0 auto;
   position: relative;
-  /* book-bg.png is set via inline style in TSX */
+  /* book_bg.png is set via inline style in TSX */
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;

@@ -1,5 +1,5 @@
 import React from 'react';
-import waterfallGif from '../Assets/waterfall-bg.gif';
+import waterfallGif from '../assets/waterfall_bg.gif';
 
 export default function PixelBg() {
   return (

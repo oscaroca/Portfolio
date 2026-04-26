@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import myImg from '../Assets/avatar.png';
-import aboutBg from '../Assets/about-bg.png';
-import bookBg from '../Assets/book-bg.png';
+import myImg from '../assets/avatar.png';
+import aboutBg from '../assets/about_bg.png';
+import bookBg from '../assets/book_bg.png';
 import Tilt from 'react-parallax-tilt';
 import '../styles/About.css';
 

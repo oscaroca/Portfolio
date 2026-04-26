@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import logo from '../Assets/logo.png';
+import logo from '../assets/logo.png';
 import { Link, useLocation } from 'react-router-dom';
 
 import { LanguageChanger } from './LanguageChanger';
@@ -23,7 +23,9 @@ export default function NavBar() {
   window.addEventListener('scroll', scrollHandler);
 
   const isActive = (path: string) =>
-    location.pathname === path ? 'ff6-nav-link ff6-nav-link--active' : 'ff6-nav-link';
+    location.pathname === path
+      ? 'ff6-nav-link ff6-nav-link--active'
+      : 'ff6-nav-link';
 
   return (
     <Navbar
@@ -34,7 +36,12 @@ export default function NavBar() {
     >
       <Container>
         <Navbar.Brand href="/" className="d-flex align-items-center">
-          <img src={logo} className="img-fluid logo" alt="brand" draggable={false} />
+          <img
+            src={logo}
+            className="img-fluid logo"
+            alt="brand"
+            draggable={false}
+          />
         </Navbar.Brand>
 
         <Navbar.Toggle
