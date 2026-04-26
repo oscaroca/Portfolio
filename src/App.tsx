@@ -25,6 +25,7 @@ import { googleDriveService } from './services/googleDrive';
 import Resume from './pages/Resume';
 import { JPNLearning } from 'jpn-learn';
 import 'jpn-learn/style.css';
+import InfiniteKanjiCraft from './pages/InfiniteKanjiCraft';
 
 // Create a client for React Query 
 const queryClient = new QueryClient({
@@ -71,6 +72,7 @@ export default function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/resume" element={<Resume />} />
                 <Route path="/JPNLearning" element={<JPNLearning />} />
+                <Route path="/InfiniteKanjiCraft" element={<InfiniteKanjiCraft />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
 
