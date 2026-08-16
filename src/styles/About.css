@@ -219,11 +219,9 @@
   font-family: 'Press Start 2P', monospace;
   font-size: 0.44em;
   color: #c8a870;
-  width: 86px;
+  min-width: 86px;
   flex-shrink: 0;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .rpg-skill-bar {
@@ -754,5 +752,86 @@
   }
   .diary-spread-num {
     font-size: 0.4em;
+  }
+}
+
+/* ===== Experience / Quest Log ===== */
+
+.experience-panel {
+  margin-top: 2rem;
+}
+
+.quest-log {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+.quest-entry {
+  border-left: 3px solid var(--color-amber);
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.quest-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.quest-company {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.6em;
+  color: var(--color-amber);
+  letter-spacing: 0.04em;
+}
+
+.quest-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78em;
+  color: var(--color-cream);
+}
+
+.quest-period {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7em;
+  color: var(--color-cream-dim);
+  flex-shrink: 0;
+}
+
+.quest-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.quest-bullet {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.76em;
+  color: var(--color-cream-dim);
+  line-height: 1.55;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.quest-bullet::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--color-amber);
+}
+
+@media (max-width: 640px) {
+  .quest-entry-header {
+    flex-direction: column;
+    gap: 0.1rem;
   }
 }

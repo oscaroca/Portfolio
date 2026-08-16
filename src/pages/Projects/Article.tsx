@@ -1,5 +1,5 @@
 import { selectedFile } from './Projects';
-import articleBg from '../../assets/article_bg.png';
+import articleBg from '../../assets/article_bg.webp';
 import './Article.css';
 
 /** Split raw HTML into pages by grouping block-level elements up to ~charsPerPage plain-text chars */

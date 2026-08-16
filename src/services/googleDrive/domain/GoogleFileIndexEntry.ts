@@ -4,4 +4,8 @@ export interface GoogleFileIndexEntry {
   title: string;
   description: string;
   previewImage: string;
+  tags?: string[];
+  githubUrl?: string;
+  demoUrl?: string;
+  priority?: number;
 }

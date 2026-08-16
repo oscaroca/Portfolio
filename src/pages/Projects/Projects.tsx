@@ -71,8 +71,6 @@ export default function Projects() {
     navigate('/project');
   };
 
-  console.log('Files:', files);
-
   const renderContentList = () => {
     return (
       <div>
@@ -87,13 +85,15 @@ export default function Projects() {
               gap: '2rem',
             }}
           >
-            {files.map((file) => (
-              <ArticlePreview
-                key={file.id}
-                file={file}
-                onClick={() => handleFileSelect(file.id)}
-              />
-            ))}
+            {[...files]
+              .sort((a, b) => (a.priority ?? 99) - (b.priority ?? 99))
+              .map((file) => (
+                <ArticlePreview
+                  key={file.id}
+                  file={file}
+                  onClick={() => handleFileSelect(file.id)}
+                />
+              ))}
           </div>
         )}
       </div>

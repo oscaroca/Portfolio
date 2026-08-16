@@ -1,47 +1,11 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import myImg from '../assets/avatar.png';
-import aboutBg from '../assets/about_bg.png';
-import bookBg from '../assets/book_bg.png';
+import myImg from '../assets/avatar.webp';
+import aboutBg from '../assets/about_bg.webp';
+import bookBg from '../assets/book_bg.webp';
 import Tilt from 'react-parallax-tilt';
 import '../styles/About.css';
-
-// ─── Skill Data ───────────────────────────────────────────────────────────────
-
-const SKILL_CATEGORIES = [
-  {
-    label: 'BACKEND',
-    color: 'torch',
-    skills: [
-      { name: 'Python', level: 9 },
-      { name: 'Node.js', level: 7 },
-    ],
-  },
-  {
-    label: 'FRONTEND',
-    color: 'parchment',
-    skills: [
-      { name: 'TypeScript', level: 8 },
-      { name: 'React', level: 8 },
-    ],
-  },
-  {
-    label: 'DATA',
-    color: 'sage',
-    skills: [
-      { name: 'SQL', level: 8 },
-      { name: 'ML / AI', level: 6 },
-    ],
-  },
-  {
-    label: 'DEVOPS',
-    color: 'torch',
-    skills: [
-      { name: 'Docker', level: 7 },
-      { name: 'Git', level: 9 },
-    ],
-  },
-];
+import skillCategories from '../data/skills';
 
 // ─── Diary Data ───────────────────────────────────────────────────────────────
 
@@ -60,7 +24,7 @@ const SPREADS: DiarySpread[] = [
     right: {
       heading: '✦ What I Build',
       date: '— Page II —',
-      text: 'My work spans full-stack web development, data pipelines, and machine learning experiments.\n\nI love working at the intersection of engineering and design — where technical rigor meets the human experience of using software day to day.',
+      text: 'My work spans production systems, LLM integrations, and full-stack features — problems where engineering decisions have real operational impact.\n\nOutside of work I build open-source tools: an AI companion with persistent memory and multiple LLM backends, a headless CMS, and a few language learning apps.',
     },
   },
   {
@@ -72,8 +36,48 @@ const SPREADS: DiarySpread[] = [
     right: {
       heading: '✦ What Drives Me',
       date: '— Page IV —',
-      text: "I believe the best software is invisible — it just works, without friction.\n\nMy goal is to keep learning, keep building, and contribute to projects that make people's lives a little easier or a little more interesting.",
+      text: "I want to work on teams that ship things people actually use — where engineering quality and real-world impact aren't in tension.\n\nI'm most excited about AI and full-stack products where the gap between a good idea and something live in people's hands is as small as possible.",
     },
+  },
+];
+
+// ─── Experience Data ──────────────────────────────────────────────────────────
+
+interface ExperienceEntry {
+  company: string;
+  role: string;
+  period: string;
+  bullets: string[];
+}
+
+// Update company/institution names and dates to match your actual CV
+const EXPERIENCE: ExperienceEntry[] = [
+  {
+    company: 'Routal',
+    role: 'Software Engineer',
+    period: '2022 – Present',
+    bullets: [
+      'Integrated LLM models into a production route-planning platform used daily by logistics teams',
+      'Built full-stack features across Python backend, TypeScript/React frontend, and data pipelines',
+      'Designed AI-powered workflows that automate and improve operational tasks at scale',
+    ],
+  },
+  {
+    company: 'University Research',
+    role: 'ML Researcher',
+    period: '2021 – 2022',
+    bullets: [
+      'Built neural network architectures from scratch — layer definitions, forward/backward passes, optimisers',
+      'Reproduced and benchmarked published algorithms in controlled experiments',
+    ],
+  },
+  {
+    company: 'University',
+    role: 'Teaching Assistant',
+    period: '2020 – 2021',
+    bullets: [
+      'Supported students across programming fundamentals and computer science courses',
+    ],
   },
 ];
 
@@ -83,6 +87,7 @@ const SEG_COLOR: Record<string, string> = {
   torch: '#9FDC7F',
   parchment: '#CCD3F0',
   sage: '#8DDEFC',
+  amber: '#e87820',
 };
 
 function SkillBar({
@@ -200,7 +205,7 @@ export default function About() {
                 className="rpg-stats-panel"
                 nailsBottom
               >
-                {SKILL_CATEGORIES.map((cat) => (
+                {skillCategories.map((cat) => (
                   <div key={cat.label} className="rpg-category">
                     <div className={`rpg-category-label rpg-cat--${cat.color}`}>
                       {cat.label}
@@ -228,7 +233,7 @@ export default function About() {
 
                   <div className="rpg-char-name">OSCAROCA</div>
                   <div className="rpg-char-divider" />
-                  <div className="rpg-char-class">Software Engineer</div>
+                  <div className="rpg-char-class">AI Product Engineer</div>
 
                   <div className="rpg-char-lv-row">
                     <span className="rpg-lv-label">LV</span>
@@ -318,6 +323,29 @@ export default function About() {
                 </div>
               </div>
             </div>
+
+            {/* ── Experience ── */}
+            <TavernBoard title="✦ EXPERIENCE ✦" className="experience-panel" nailsBottom>
+              <div className="quest-log">
+                {EXPERIENCE.map((entry, i) => (
+                  <div key={i} className="quest-entry">
+                    <div className="quest-entry-header">
+                      <div>
+                        <span className="quest-company">{entry.company}</span>
+                        <span className="quest-role"> · {entry.role}</span>
+                      </div>
+                      <span className="quest-period">{entry.period}</span>
+                    </div>
+                    <ul className="quest-bullets">
+                      {entry.bullets.map((b, j) => (
+                        <li key={j} className="quest-bullet">{b}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </TavernBoard>
+
           </Container>
         </Container>
       </section>

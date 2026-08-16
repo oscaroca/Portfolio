@@ -1,7 +1,23 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm --version)"
+      "Bash(npm --version)",
+      "Bash(grep -E \"\\\\.\\(js|jsx|ts|tsx|json\\)$\")",
+      "Bash(npx tsc *)",
+      "Bash(cwebp -version)",
+      "Bash(magick -version)",
+      "Bash(ffmpeg -version)",
+      "Bash(ffmpeg -i book_bg.png -c:v libwebp -quality 82 book_bg.webp -y)",
+      "Bash(ffmpeg -i about_bg.png -c:v libwebp -quality 82 about_bg.webp -y)",
+      "Bash(ffmpeg -i article_bg.png -c:v libwebp -quality 82 article_bg.webp -y)",
+      "Bash(node -e ' *)",
+      "Bash(ffmpeg -i avatar.png -c:v libwebp -quality 82 avatar.webp -y)",
+      "Bash(ffmpeg -i home_main.png -c:v libwebp -quality 82 home_main.webp -y)",
+      "Bash(ffmpeg -i logo.png -c:v libwebp -quality 82 logo.webp -y)",
+      "Bash(ffmpeg -i waterfall_bg.gif -c:v libwebp -lossless 0 -quality 75 -loop 0 waterfall_bg.webp -y)",
+      "Bash(ffmpeg -i waterfall_bg.gif -c:v libwebp -lossless 0 -quality 45 -loop 0 waterfall_bg.webp -y)",
+      "Bash(node -e \"const fs=require\\('fs'\\); console.log\\('waterfall_bg.webp:', Math.round\\(fs.statSync\\('waterfall_bg.webp'\\).size/1024\\)+'KB'\\)\")",
+      "Bash(ffmpeg -i waterfall_bg.gif -c:v libwebp -lossless 0 -quality 25 -loop 0 waterfall_bg.webp -y)"
     ]
   }
 }

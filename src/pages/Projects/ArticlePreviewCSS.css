@@ -185,3 +185,52 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ===== Tech Tags ===== */
+.sticky-note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.sticky-note-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6em;
+  color: #3a2a10;
+  background: rgba(58, 42, 16, 0.1);
+  border: 1px solid rgba(58, 42, 16, 0.18);
+  border-radius: 3px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+/* ===== Repo / Demo Icon Buttons ===== */
+.sticky-note-links {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.sticky-note-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(58, 42, 16, 0.1);
+  border: 1px solid rgba(58, 42, 16, 0.2);
+  color: #3a2a10;
+  font-size: 1em;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
+}
+
+.sticky-note-link-btn:hover {
+  background: rgba(58, 42, 16, 0.22);
+  transform: scale(1.12);
+  color: #1a0e00;
+}

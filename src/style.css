@@ -1039,3 +1039,30 @@ footer nav a:hover {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* ===== CTA Button ===== */
+.home-cta-btn {
+  display: block;
+  width: fit-content;
+  margin: 1.5rem auto 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.72em;
+  color: #0d1610;
+  background: var(--color-amber);
+  padding: 0.75em 1.6em;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition:
+    background 0.2s ease,
+    transform 0.12s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 12px rgba(159, 220, 127, 0.18);
+}
+
+.home-cta-btn:hover {
+  background: var(--color-amber-light);
+  color: #0d1610;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(159, 220, 127, 0.32);
+}

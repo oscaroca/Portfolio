@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { FiDownload } from 'react-icons/fi';
 import TypewriterStack from '../components/TypewriterStack';
 import { googleDriveRepository } from '../services/googleDrive';
 import './Resume.css';
@@ -77,7 +78,8 @@ export default function Resume() {
                     rel="noopener noreferrer"
                     className="resume-download-btn"
                   >
-                    ⬇ Download Resume
+                    <FiDownload style={{ fontSize: '1.5em', verticalAlign: 'middle', marginRight: '0.4em' }} />
+                    Download Resume
                   </a>
                 </div>
                 <iframe

@@ -6,18 +6,19 @@
       "title1": "LET ME",
       "title2": "INTRODUCE",
       "title3": "MYSELF",
-      "body1": "I’m a Software Engineer who thrives on solving complex problems and turning challenges into simple and reliable solutions.",
-      "stackLead": "I’m proficient in",
-      "stack": "Python, React, TypeScript, JavaScript, Node.js",
-      "interestsLead": "My key areas of interest include",
-      "interests": "Problem Solving, Machine Learning, Data Science",
-      "toolsLead": "and exploring new ways to improve day-to-day workflows."
+      "body1": "I'm a full-stack developer and open-source builder. I love working at the intersection of AI and product — building LLM systems, data pipelines, and the interfaces people use every day.",
+      "stackLead": "I work with",
+      "stack": "Python, React, TypeScript, LLM APIs, Node.js",
+      "interestsLead": "My focus areas include",
+      "interests": "LLM Systems, Full-Stack Development, ML Research",
+      "toolsLead": "Always building something new."
     },
     "social": {
       "findMe": "Find Me On",
       "connect1": "Or feel free to ",
       "connect2": "write",
-      "connect3": " me"
+      "connect3": " me",
+      "connectCta": "Let's work together →"
     }
   }
 }

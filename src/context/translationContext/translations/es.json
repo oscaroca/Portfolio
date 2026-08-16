@@ -6,18 +6,19 @@
       "title1": "PERMÍTEME",
       "title2": "PRESENTARME",
       "title3": "",
-      "body1": "Soy un Ingeniero de Software que disfruta resolver problemas complejos y convertir desafíos en soluciones simples y confiables.",
-      "stackLead": "Tengo dominio de",
-      "stack": "Python, React, TypeScript, JavaScript, Node.js",
-      "interestsLead": "Mis principales áreas de interés incluyen",
-      "interests": "Resolución de Problemas, Machine Learning, Ciencia de Datos",
-      "toolsLead": "También me gusta explorar nuevas formas de mejorar las pequeñas cosas del dia a dia."
+      "body1": "Soy un desarrollador full-stack y creador de proyectos open-source. Me apasiona trabajar en la intersección entre IA y producto — construyendo sistemas LLM, pipelines de datos e interfaces que la gente usa cada día.",
+      "stackLead": "Trabajo con",
+      "stack": "Python, React, TypeScript, LLM APIs, Node.js",
+      "interestsLead": "Mis áreas de enfoque son",
+      "interests": "Sistemas LLM, Desarrollo Full-Stack, Investigación en ML",
+      "toolsLead": "Siempre construyendo algo nuevo."
     },
     "social": {
       "findMe": "Encuéntrame en",
       "connect1": "No dudes en ",
       "connect2": "escribirme",
-      "connect3": ""
+      "connect3": "",
+      "connectCta": "Trabajemos juntos →"
     }
   }
 }

@@ -1,9 +1,32 @@
 [
   {
+    "id": "1bU90l4xbw8sIqwLU8p5yDv7HDyME2_prj8nzWxfH1y8",
+    "mimeType": "application/vnd.google-apps.document",
+    "title": "Modular AI Companion",
+    "description": "Sistema de IA listo para producción con múltiples backends LLM (OpenAI y local), memoria semántica persistente, interacción por voz, bots de Discord y Telegram, y avatar 3D en Unity.",
+    "previewImage": "1D4Da34dOoYWhh0LQSK8EJyheHhPZVWn-",
+    "priority": 1,
+    "tags": ["Python", "LLM APIs", "SQLite"],
+    "githubUrl": "https://github.com/oscaroca/Ai-companion"
+  },
+  {
+    "id": "1DebV3RxzSdJ9N3s_OcM3sXDv7HDyME2_prj8nzWxfH1y8",
+    "mimeType": "application/vnd.google-apps.document",
+    "title": "DriveCMS",
+    "description": "Convierte una carpeta de Google Drive en un índice JSON estático — un CMS headless sin dependencias de ejecución. Alimenta la capa de contenido de este mismo portfolio.",
+    "previewImage": "1jt3st94Ye1USHPLGtS2MNYEUt75KyhV2",
+    "priority": 2,
+    "tags": ["TypeScript", "Node.js", "Google Drive API"],
+    "githubUrl": "https://github.com/oscaroca/DriveCMS"
+  },
+  {
     "id": "1E33-zTtwmWT10m9pfwW2GTOgCvjr2nqT9Vg3dYHL5bg",
     "mimeType": "application/vnd.google-apps.document",
     "title": "DNAF",
-    "description": "",
-    "previewImage": "1ldECIW_R-b9f-TEASMLHGS7wpms5Urvq"
+    "description": "Hack de fin de semana — bot de pesca automática para Duet Night Abyss. Visión por computador + automatización de entrada.",
+    "previewImage": "1ldECIW_R-b9f-TEASMLHGS7wpms5Urvq",
+    "priority": 5,
+    "tags": ["Python", "Automatización"],
+    "githubUrl": "https://github.com/oscaroca/DNAF"
   }
 ]

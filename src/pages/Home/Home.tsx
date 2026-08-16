@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import homeLogo from '../../assets/home_main.png';
+import homeLogo from '../../assets/home_main.webp';
 import PixelBg from '../../components/PixelBg';
 
 import Introduction from './Introduction';
@@ -49,11 +49,9 @@ export default function Home() {
                 <div style={{ padding: 50, textAlign: 'left' }}>
                   <TypewriterStack
                     lines={[
-                      'Software Developer',
-                      '3D Artist',
-                      'Hardware Enthusiast',
-                      'Designer',
-                      'Open Source Contributor',
+                      'AI Product Engineer',
+                      'Full-Stack Developer',
+                      'Open Source Builder',
                     ]}
                     loop={true}
                   />
@@ -103,26 +101,12 @@ export default function Home() {
                   </a>
                 </li>
               </ul>
-              <p
-                style={{
-                  color: 'var(--color-cream-dim)',
-                  fontFamily: "'DM Mono', monospace",
-                }}
+              <a
+                href="mailto:contact@oscaroca.com"
+                className="home-cta-btn"
               >
-                {t('home.social.connect1')}
-                <span style={{ color: 'var(--color-amber)' }}>
-                  <a
-                    href="mailto:contact@oscaroca.com"
-                    style={{
-                      color: 'var(--color-amber)',
-                      textDecoration: 'none',
-                    }}
-                  >
-                    {t('home.social.connect2')}
-                  </a>
-                </span>
-                {t('home.social.connect3')}
-              </p>
+                {t('home.social.connectCta')}
+              </a>
             </Col>
           </Row>
         </Container>
